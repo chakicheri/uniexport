@@ -11,7 +11,7 @@
           <circle cx="16" cy="16" r="13.5" fill="none" stroke="currentColor" stroke-width="2" />
           <path d="M16 5.5l3.2 10.5L16 26.5l-3.2-10.5z" fill="currentColor" />
         </svg>
-        <span class="logo-text">MERIDIAN<small>EXPORT CO.</small></span>
+        <span class="logo-text">UNI-EXPORT<small>By TRS INDUSTRIE.</small></span>
       </button>
       <p>Premium export trading company delivering certified agricultural goods from origin to ports worldwide since 2013.</p>
       <span class="export-badge">◆ Export only — we do not import</span>
