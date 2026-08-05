@@ -15,7 +15,8 @@ export const IMG = {
   shrimp: '/images/shrimp.jpg',
   tuna: '/images/tuna.jpg',
   cashew: '/images/cashew.jpg',
-  quinoa: '/images/quinoa.jpg'
+  quinoa: '/images/quinoa.jpg',
+  oliveOil: '/images/olive-oil.jpg'
 };
 
 export const navLinks = [
@@ -30,7 +31,8 @@ export const categories = [
   { name: 'Tropical Fruits', tagline: 'Fresh and dried, cold-chain ready worldwide', img: IMG.mango },
   { name: 'Spices & Herbs', tagline: 'Steam-sterilized with full lot traceability', img: IMG.pepper },
   { name: 'Seafood', tagline: 'Sashimi-grade handling across the cold chain', img: IMG.shrimp },
-  { name: 'Nuts & Grains', tagline: 'Lab-tested, packed to export specification', img: IMG.cashew }
+  { name: 'Nuts & Grains', tagline: 'Lab-tested, packed to export specification', img: IMG.cashew },
+  { name: 'Olive Oil', tagline: 'The best olive oil for your culinary needs', img: IMG.oliveOil }
 ];
 
 export const products = [
@@ -45,7 +47,8 @@ export const products = [
   { name: 'Whiteleg Shrimp — HLSO', category: 'Seafood', desc: 'Farm-raised vannamei, IQF headless shell-on, sushi-grade handling.', spec: 'MOQ 10 t · 2 kg IQF blocks · CIF', img: IMG.shrimp },
   { name: 'Yellowfin Tuna Loins', category: 'Seafood', desc: 'Sashimi-grade loins, blast-frozen at −60 °C within hours of catch.', spec: 'MOQ 4 t · Vacuum packs · Air freight', img: IMG.tuna },
   { name: 'Cashew Kernels W320', category: 'Nuts & Grains', desc: 'Creamy whole white kernels, 5% moisture, aflatoxin-tested lots.', spec: 'MOQ 7 t · 11.34 kg vacuum tins · FOB', img: IMG.cashew },
-  { name: 'Royal White Quinoa', category: 'Nuts & Grains', desc: 'Pre-washed low-saponin quinoa, 99.9% purity, glyphosate-free.', spec: 'MOQ 12 t · 25 kg bags · FOB', img: IMG.quinoa }
+  { name: 'Royal White Quinoa', category: 'Nuts & Grains', desc: 'Pre-washed low-saponin quinoa, 99.9% purity, glyphosate-free.', spec: 'MOQ 12 t · 25 kg bags · FOB', img: IMG.quinoa },
+  { name: 'Olive Oil', category: 'Olive Oil', desc: 'The best olive oil for your culinary needs', spec: 'MOQ 19 t · several quantities bottles · FOB', img: IMG.oliveOil }
 ];
 
 export const stats = [
