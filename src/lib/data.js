@@ -1,20 +1,20 @@
 // src/lib/data.js — all site content lives here
 
 export const IMG = {
-  hero: 'https://image.qwenlm.ai/public_source/b40154cd-4ea2-4e78-a326-715d90eb6243/14856174d-d80b-4a91-9b11-3b6d7fb1a6e2.png',
-  about: 'https://image.qwenlm.ai/public_source/b40154cd-4ea2-4e78-a326-715d90eb6243/17b995f72-6cca-4bb6-b002-1518137a4509.png',
-  coffee: 'https://image.qwenlm.ai/public_source/b40154cd-4ea2-4e78-a326-715d90eb6243/178513694-a107-4465-a11c-41b4d8565b34.png',
-  cacao: 'https://image.qwenlm.ai/public_source/b40154cd-4ea2-4e78-a326-715d90eb6243/15d1a8838-8fd6-451c-9c0a-76ea6e56be6e.png',
-  mango: 'https://image.qwenlm.ai/public_source/b40154cd-4ea2-4e78-a326-715d90eb6243/1efd303d3-c40b-4bf7-8b45-52102f755ff3.png',
-  pineapple: 'https://image.qwenlm.ai/public_source/b40154cd-4ea2-4e78-a326-715d90eb6243/11429614b-56e9-426d-b785-41d30e906f50.png',
-  passion: 'https://image.qwenlm.ai/public_source/b40154cd-4ea2-4e78-a326-715d90eb6243/1b5a817de-77e7-4a4d-8c5e-ea165f68e950.png',
-  pepper: 'https://image.qwenlm.ai/public_source/b40154cd-4ea2-4e78-a326-715d90eb6243/1694b6f18-9ce2-43d5-bb60-4573c2b01713.png',
-  vanilla: 'https://image.qwenlm.ai/public_source/b40154cd-4ea2-4e78-a326-715d90eb6243/1b404d2ba-846f-4d1d-bbba-15146af186a0.png',
-  chili: 'https://image.qwenlm.ai/public_source/b40154cd-4ea2-4e78-a326-715d90eb6243/1ca4200bd-c9ae-4aab-8db1-cb518040ee75.png',
-  shrimp: 'https://image.qwenlm.ai/public_source/b40154cd-4ea2-4e78-a326-715d90eb6243/171d3ab55-5696-4d09-88fa-4da47d54ad87.png',
-  tuna: 'https://image.qwenlm.ai/public_source/b40154cd-4ea2-4e78-a326-715d90eb6243/119b771ee-a48c-48b1-b8fb-5d4718eee6ce.png',
-  cashew: 'https://image.qwenlm.ai/public_source/b40154cd-4ea2-4e78-a326-715d90eb6243/171a82ce7-c27d-4631-a7b4-22952c19872d.png',
-  quinoa: 'https://image.qwenlm.ai/public_source/b40154cd-4ea2-4e78-a326-715d90eb6243/1d6b192a1-7754-499a-aec0-4da6204c4b6a.png'
+  hero: '/images/hero.jpg',
+  about: '/images/about.jpg',
+  coffee: '/images/coffee.jpg',
+  cacao: '/images/cacao2.jpg',
+  mango: '/images/mango.jpg',
+  pineapple: '/images/pineapple.jpg',
+  passion: '/images/passion.jpg',
+  pepper: '/images/pepper.jpg',
+  vanilla: '/images/vanilla.jpg',
+  chili: '/images/chili.jpg',
+  shrimp: '/images/shrimp.jpg',
+  tuna: '/images/tuna.jpg',
+  cashew: '/images/cashew.jpg',
+  quinoa: '/images/quinoa.jpg'
 };
 
 export const navLinks = [
@@ -34,7 +34,7 @@ export const categories = [
 
 export const products = [
   { name: 'Arabica Coffee — Grade AA', category: 'Coffee & Cacao', desc: 'High-altitude washed arabica with bright citrus acidity and a long chocolate finish.', spec: 'MOQ 19.2 t · 60 kg jute bags · FOB', img: IMG.coffee },
-  { name: 'Fine-Flavor Cacao Beans', category: 'Coffee & Cacao', desc: 'Fermented and sun-dried criollo-trinitario beans, 7% moisture maximum.', spec: 'MOQ 12 t · 62.5 kg bags · FOB', img: IMG.cacao },
+  { name: 'Fine-Flavor Cacao Beans', category: 'Coffee & Cacao', desc: 'Fermented and sun-dried criollo-trinitario beans, 7% moisture maximum.', spec: 'MOQ 12 t · 62.5 kg bags · FOB', img: IMG.cacao2 },
   { name: 'Golden Dried Mango', category: 'Tropical Fruits', desc: 'No-sulphur dried mango slices from fully ripe fruit, naturally sweet.', spec: 'MOQ 5 t · 10 kg cartons · CIF', img: IMG.mango },
   { name: 'Fresh MD2 Pineapple', category: 'Tropical Fruits', desc: 'Extra-sweet golden pineapples, reefer or air-freight ready, export grade.', spec: 'MOQ 1 pallet · 12-count boxes · CIF', img: IMG.pineapple },
   { name: 'Frozen Passion Fruit Pulp', category: 'Tropical Fruits', desc: 'IQF pulp from ripe fruit, Brix 14+, no additives, aseptic packed.', spec: 'MOQ 10 t · 20 kg aseptic bags · FOB', img: IMG.passion },
