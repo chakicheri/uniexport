@@ -4,7 +4,8 @@ export const IMG = {
   hero: '/images/hero.jpg',
   about: '/images/about.jpg',
   coffee: '/images/coffee.jpg',
-  cacao: '/images/cacao2.jpg',
+  coffee2: '/images/coffee2.jpg',
+  cacao: '/images/cacao.jpg',
   mango: '/images/mango.jpg',
   pineapple: '/images/pineapple.jpg',
   passion: '/images/passion.jpg',
@@ -25,7 +26,7 @@ export const navLinks = [
 ];
 
 export const categories = [
-  { name: 'Coffee & Cacao', tagline: 'High-altitude lots, cupped and graded at origin', img: IMG.coffee },
+  { name: 'Coffee & Cacao', tagline: 'High-altitude lots, cupped and graded at origin', img: IMG.coffee2 },
   { name: 'Tropical Fruits', tagline: 'Fresh and dried, cold-chain ready worldwide', img: IMG.mango },
   { name: 'Spices & Herbs', tagline: 'Steam-sterilized with full lot traceability', img: IMG.pepper },
   { name: 'Seafood', tagline: 'Sashimi-grade handling across the cold chain', img: IMG.shrimp },
@@ -33,8 +34,8 @@ export const categories = [
 ];
 
 export const products = [
-  { name: 'Arabica Coffee — Grade AA', category: 'Coffee & Cacao', desc: 'High-altitude washed arabica with bright citrus acidity and a long chocolate finish.', spec: 'MOQ 19.2 t · 60 kg jute bags · FOB', img: IMG.coffee },
-  { name: 'Fine-Flavor Cacao Beans', category: 'Coffee & Cacao', desc: 'Fermented and sun-dried criollo-trinitario beans, 7% moisture maximum.', spec: 'MOQ 12 t · 62.5 kg bags · FOB', img: IMG.cacao2 },
+  { name: 'Arabica Coffee — Grade AA', category: 'Coffee & Cacao', desc: 'High-altitude washed arabica with bright citrus acidity and a long chocolate finish.', spec: 'MOQ 19.2 t · 60 kg jute bags · FOB', img: IMG.coffee2 },
+  { name: 'Fine-Flavor Cacao Beans', category: 'Coffee & Cacao', desc: 'Fermented and sun-dried criollo-trinitario beans, 7% moisture maximum.', spec: 'MOQ 12 t · 62.5 kg bags · FOB', img: IMG.cacao },
   { name: 'Golden Dried Mango', category: 'Tropical Fruits', desc: 'No-sulphur dried mango slices from fully ripe fruit, naturally sweet.', spec: 'MOQ 5 t · 10 kg cartons · CIF', img: IMG.mango },
   { name: 'Fresh MD2 Pineapple', category: 'Tropical Fruits', desc: 'Extra-sweet golden pineapples, reefer or air-freight ready, export grade.', spec: 'MOQ 1 pallet · 12-count boxes · CIF', img: IMG.pineapple },
   { name: 'Frozen Passion Fruit Pulp', category: 'Tropical Fruits', desc: 'IQF pulp from ripe fruit, Brix 14+, no additives, aseptic packed.', spec: 'MOQ 10 t · 20 kg aseptic bags · FOB', img: IMG.passion },
