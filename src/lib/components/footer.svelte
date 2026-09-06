@@ -39,9 +39,9 @@
 
     <div>
       <h4>Contact</h4>
-      <p class="footer-p">Harbor Business Park, Terminal 4<br />08039 Barcelona, Spain</p>
-      <p class="footer-p">exports@meridianexport.co<br />+34 910 555 214</p>
-      <p class="footer-p">Mon – Sat · 08:00 – 18:00 CET</p>
+      <p class="footer-p">Rue Chehat Rabah<br />Staouali Algiers, Algeria</p>
+      <p class="footer-p">contact@uni-export.com<br />+213 770 603 930</p>
+      <p class="footer-p">Sun – Thu · 08:00 – 18:00 CET</p>
     </div>
   </div>
 
