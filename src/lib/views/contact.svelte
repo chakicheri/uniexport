@@ -78,21 +78,21 @@
         <div class="info-icon">{@html icons.mail}</div>
         <div>
           <h4>Export desk</h4>
-          <p>exports@meridianexport.co<br />quotes@meridianexport.co</p>
+          <p>contact@uni-export.com<br />infos@uni-export.com</p>
         </div>
       </div>
       <div class="info-item">
         <div class="info-icon">{@html icons.phone}</div>
         <div>
           <h4>Phone / WhatsApp</h4>
-          <p>+34 910 555 214<br />+34 600 555 890</p>
+          <p>+213 770 603 930<br />+213 773 789 041</p>
         </div>
       </div>
       <div class="info-item">
         <div class="info-icon">{@html icons.pin}</div>
         <div>
           <h4>Head office</h4>
-          <p>Harbor Business Park, Terminal 4<br />08039 Barcelona, Spain</p>
+          <p>Rue Chehat Rabah<br />Staouali Algiers 16000, Algeria</p>
         </div>
       </div>
       <div class="info-item">
