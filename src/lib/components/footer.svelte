@@ -47,7 +47,7 @@
 
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
-      <span>© 2026 Meridian Export Co. All rights reserved.</span>
+      <span>© 2026 Uni Export Co. All rights reserved.</span>
       <span>Incoterms 2020 · FOB / CIF / CFR · Export only</span>
     </div>
   </div>
