@@ -18,7 +18,7 @@
     <div class="about-text">
       <span class="eyebrow alt">SINCE 2013</span>
       <h2>From one container to four continents</h2>
-      <p>Meridian Export Co. began with a single container of high-altitude coffee and a simple conviction: origin deserves a direct seat at the world's table. Today we run five specialist divisions and ship more than 500 containers a year.</p>
+      <p>Universal Export. began with a single container of high-altitude coffee and a simple conviction: origin deserves a direct seat at the world's table. Today we run five specialist divisions and ship more than 500 containers a year.</p>
       <p>We made a deliberate decision early on — no importing. Focusing on one direction of trade lets us go deeper: stronger farm relationships, tighter quality control and logistics tuned to a single, demanding flow of goods.</p>
       <p>Every lot we ship is sampled, lab-tested and certified at origin, then tracked from farm registry to bill of lading. That is the Meridian standard.</p>
     </div>
