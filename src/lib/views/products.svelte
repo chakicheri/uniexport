@@ -1,12 +1,20 @@
 <script>
-  import { activeCategory, inquire } from '$lib/store.js';
+  import { page } from '$app/stores';
+  import { goto } from '$app/navigation';
+  import { inquire } from '$lib/store.js';
   import { categories, products } from '$lib/data.js';
 
-  // Svelte 5 Runes: $derived automatically recalculates when $activeCategory changes
+  // Category is read from the URL: /products?cat=Seafood
+  let activeCategory = $derived($page.url.searchParams.get('cat') ?? 'All');
   let catNames = $derived(['All', ...categories.map((c) => c.name)]);
   let filtered = $derived(
-    $activeCategory === 'All' ? products : products.filter((p) => p.category === $activeCategory)
+    activeCategory === 'All' ? products : products.filter((p) => p.category === activeCategory)
   );
+
+  function selectCategory(cat) {
+    const url = cat === 'All' ? '/products' : `/products?cat=${encodeURIComponent(cat)}`;
+    goto(url, { replaceState: true });
+  }
 </script>
 
 <section class="page-head">
@@ -19,26 +27,19 @@
 
 <section class="section">
   <div class="container">
-    <!-- Filter Chips -->
     <div class="filter-bar" role="tablist">
       {#each catNames as cat}
-        <button
-          class="chip"
-          class:active={$activeCategory === cat}
-          onclick={() => activeCategory.set(cat)}
-        >
+        <button class="chip" class:active={activeCategory === cat} onclick={() => selectCategory(cat)}>
           {cat}
         </button>
       {/each}
     </div>
 
-    <!-- Result Count -->
     <p class="result-count">
       {filtered.length} product{filtered.length === 1 ? '' : 's'}
-      {$activeCategory === 'All' ? 'across all divisions' : `in ${$activeCategory}`}
+      {activeCategory === 'All' ? 'across all divisions' : `in ${activeCategory}`}
     </p>
 
-    <!-- Product Grid -->
     <div class="products-grid">
       {#each filtered as product (product.name)}
         <article class="product-card">
@@ -50,9 +51,7 @@
             <h3>{product.name}</h3>
             <p>{product.desc}</p>
             <div class="pc-spec">{product.spec}</div>
-            <button class="btn btn-gold btn-sm" onclick={() => inquire(product.name)}>
-              Inquire
-            </button>
+            <button class="btn btn-gold btn-sm" onclick={() => inquire(product.name)}>Inquire</button>
           </div>
         </article>
       {/each}

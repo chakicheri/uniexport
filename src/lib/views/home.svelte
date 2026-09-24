@@ -1,7 +1,7 @@
 <script>
   import { fly } from 'svelte/transition';
   import { onMount } from 'svelte';
-  import { go, countFor } from '$lib/store.js';
+  import { countFor } from '$lib/store.js';
   import { IMG, categories, stats, values, ports } from '$lib/data.js';
 
   let counts = $state(stats.map(() => 0));
@@ -27,8 +27,8 @@
     <h1 in:fly={{ y: 22, delay: 100, duration: 650 }}>The world's finest harvests, <em>shipped with certainty.</em></h1>
     <p in:fly={{ y: 22, delay: 200, duration: 650 }}>Meridian Export Co. sources, certifies and delivers premium agricultural goods to 25+ countries. We export — and only export — so every container meets the highest international standard.</p>
     <div class="hero-ctas" in:fly={{ y: 22, delay: 300, duration: 650 }}>
-      <button class="btn btn-gold" onclick={() => go('products')}>Explore Products →</button>
-      <button class="btn btn-ghost" onclick={() => go('contact')}>Contact Us</button>
+      <a class="btn btn-gold" href="/products">Explore Products →</a>
+      <a class="btn btn-ghost" href="/contact">Contact Us</a>
     </div>
   </div>
 </section>
@@ -63,14 +63,14 @@
     </div>
     <div class="cat-grid">
       {#each categories as cat (cat.name)}
-        <button class="cat-card" onclick={() => go('products', cat.name)}>
+        <a class="cat-card" href={`/products?cat=${encodeURIComponent(cat.name)}`}>
           <img src={cat.img} alt={cat.name} loading="lazy" />
           <div class="cat-info">
             <h3>{cat.name}</h3>
             <p>{cat.tagline}</p>
             <span class="cat-count">{countFor(cat.name)} products →</span>
           </div>
-        </button>
+        </a>
       {/each}
     </div>
   </div>
@@ -102,7 +102,7 @@
         <h2>Ready to move your next container?</h2>
         <p>Tell us the product, volume and destination port — our export desk replies within 24 business hours.</p>
       </div>
-      <button class="btn btn-gold" onclick={() => go('contact')}>Request a Quote →</button>
+      <a class="btn btn-gold" href="/contact">Request a Quote</a>
     </div>
   </div>
 </section>
