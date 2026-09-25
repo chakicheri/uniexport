@@ -1,6 +1,6 @@
 <script>
   import { slide } from 'svelte/transition';
-  import { page } from '$app/stores';
+  import { page } from '$app/state'; // FIX: use state instead of stores
   import { afterNavigate } from '$app/navigation';
   import { scrolled, mobileOpen } from '$lib/store.js';
   import { t } from '$lib/i18n.js';
@@ -16,7 +16,8 @@
   afterNavigate(() => mobileOpen.set(false));
 </script>
 
-<header class="nav" class:solid={$scrolled || $page.url.pathname !== '/' || $mobileOpen}>
+<!-- FIX: removed the $ before page.url.pathname -->
+<header class="nav" class:solid={$scrolled || page.url.pathname !== '/' || $mobileOpen}>
   <div class="container nav-inner">
     <a class="logo" href="/" aria-label="Meridian Export Co. — home">
       <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true">
@@ -28,7 +29,8 @@
 
     <nav class="nav-links" aria-label="Primary">
       {#each navLinks as link (link.href)}
-        <a class="nav-link" class:active={$page.url.pathname === link.href} href={link.href}>{$t(link.key)}</a>
+        <!-- FIX: removed $ before page.url.pathname -->
+        <a class="nav-link" class:active={page.url.pathname === link.href} href={link.href}>{$t(link.key)}</a>
       {/each}
     </nav>
 
@@ -43,7 +45,7 @@
   {#if $mobileOpen}
     <div class="mobile-panel" transition:slide={{ duration: 260 }}>
       {#each navLinks as link (link.href)}
-        <a class="nav-link m-link" class:active={$page.url.pathname === link.href} href={link.href}>{$t(link.key)}</a>
+        <a class="nav-link m-link" class:active={page.url.pathname === link.href} href={link.href}>{$t(link.key)}</a>
       {/each}
       <a class="btn btn-gold" href="/contact">{$t('nav.quote')}</a>
       <LangSwitcher />

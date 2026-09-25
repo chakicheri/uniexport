@@ -1,5 +1,6 @@
 <script>
   import { IMG, values, timeline, certifications, icons } from '$lib/data.js';
+  import { t } from '$lib/i18n.js';
 </script>
 
 <section class="page-head">
@@ -39,11 +40,11 @@
       <h2>Values that ship with every container</h2>
     </div>
     <div class="feat-grid">
-      {#each values as item (item.title)}
+      {#each values as item (item.key)}
         <div class="feat-card light">
           <div class="feat-icon">{@html item.icon}</div>
-          <h3>{item.title}</h3>
-          <p>{item.text}</p>
+          <h3>{$t(`val.${item.key}.title`)}</h3>
+          <p>{$t(`val.${item.key}.text`)}</p>
         </div>
       {/each}
     </div>

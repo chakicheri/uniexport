@@ -32,11 +32,11 @@
 
     <div>
       <h4>{$t('footer.categories')}</h4>
-      {#each categories as cat (cat.name)}
-        <a class="footer-link" href={`/products?cat=${encodeURIComponent(cat.name)}`}>{cat.name}</a>
+      {#each categories as cat (cat.id)}
+        <a class="footer-link" href={`/products?cat=${cat.id}`}>{$t(`cat.${cat.id}.name`)}</a>
       {/each}
     </div>
-
+    
     <div>
       <h4>{$t('footer.contact')}</h4>
       <p class="footer-p">Harbor Business Park, Terminal 4<br />08039 Barcelona, Spain</p>

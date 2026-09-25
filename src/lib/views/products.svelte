@@ -1,43 +1,49 @@
 <script>
-  import { page } from '$app/stores';
+  import { page } from '$app/state'; // FIX: use state instead of stores
   import { goto } from '$app/navigation';
   import { inquire } from '$lib/store.js';
+  import { t } from '$lib/i18n.js';
   import { categories, products } from '$lib/data.js';
 
-  // Category is read from the URL: /products?cat=Seafood
-  let activeCategory = $derived($page.url.searchParams.get('cat') ?? 'All');
-  let catNames = $derived(['All', ...categories.map((c) => c.name)]);
+  // FIX: removed $ before page.url
+  let activeCategory = $derived(page.url.searchParams.get('cat') ?? 'All');
   let filtered = $derived(
     activeCategory === 'All' ? products : products.filter((p) => p.category === activeCategory)
   );
 
-  function selectCategory(cat) {
-    const url = cat === 'All' ? '/products' : `/products?cat=${encodeURIComponent(cat)}`;
-    goto(url, { replaceState: true });
+  function selectCategory(id) {
+    goto(id === 'All' ? '/products' : `/products?cat=${id}`, { replaceState: true });
   }
 </script>
 
+
 <section class="page-head">
   <div class="container">
-    <span class="eyebrow">OUR CATALOG</span>
-    <h1>Products by Category</h1>
-    <p>Export-spec goods with transparent MOQs, packaging and incoterms. Filter by division, then send an inquiry in one click.</p>
+    <span class="eyebrow">{$t('products.eyebrow')}</span>
+    <h1>{$t('products.title')}</h1>
+    <p>{$t('products.text')}</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
     <div class="filter-bar" role="tablist">
-      {#each catNames as cat}
-        <button class="chip" class:active={activeCategory === cat} onclick={() => selectCategory(cat)}>
-          {cat}
+      <button class="chip" class:active={activeCategory === 'All'} onclick={() => selectCategory('All')}>
+        {$t('products.all')}
+      </button>
+      {#each categories as cat (cat.id)}
+        <button class="chip" class:active={activeCategory === cat.id} onclick={() => selectCategory(cat.id)}>
+          {$t(`cat.${cat.id}.name`)}
         </button>
       {/each}
     </div>
 
     <p class="result-count">
-      {filtered.length} product{filtered.length === 1 ? '' : 's'}
-      {activeCategory === 'All' ? 'across all divisions' : `in ${activeCategory}`}
+      {#if activeCategory === 'All'}
+        {filtered.length} {$t('products.countAll')}
+      {:else}
+        {filtered.length} {$t('products.countIn')} {$t(`cat.${activeCategory}.name`)}
+      {/if}
     </p>
 
     <div class="products-grid">
@@ -45,13 +51,13 @@
         <article class="product-card">
           <div class="pc-img">
             <img src={product.img} alt={product.name} loading="lazy" />
-            <span class="pc-tag">{product.category}</span>
+            <span class="pc-tag">{$t(`cat.${product.category}.name`)}</span>
           </div>
           <div class="pc-body">
             <h3>{product.name}</h3>
             <p>{product.desc}</p>
             <div class="pc-spec">{product.spec}</div>
-            <button class="btn btn-gold btn-sm" onclick={() => inquire(product.name)}>Inquire</button>
+            <button class="btn btn-gold btn-sm" onclick={() => inquire(product.name)}>{$t('products.inquire')}</button>
           </div>
         </article>
       {/each}

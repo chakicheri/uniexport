@@ -27,35 +27,37 @@ export const navLinks = [
 ];
 
 export const categories = [
-  { name: 'Coffee & Cacao', tagline: 'High-altitude lots, cupped and graded at origin', img: IMG.coffee2 },
-  { name: 'Tropical Fruits', tagline: 'Fresh and dried, cold-chain ready worldwide', img: IMG.mango },
-  { name: 'Spices & Herbs', tagline: 'Steam-sterilized with full lot traceability', img: IMG.pepper },
-  { name: 'Seafood', tagline: 'Sashimi-grade handling across the cold chain', img: IMG.shrimp },
-  { name: 'Nuts & Grains', tagline: 'Lab-tested, packed to export specification', img: IMG.cashew },
-  { name: 'Olive Oil', tagline: 'The best olive oil for your culinary needs', img: IMG.oliveOil }
+  { id: 'coffee', name: 'Coffee & Cacao', tagline: 'High-altitude lots, cupped and graded at origin', img: IMG.coffee2 },
+  { id: 'fruits', name: 'Tropical Fruits', tagline: 'Fresh and dried, cold-chain ready worldwide', img: IMG.mango },
+  { id: 'spices', name: 'Spices & Herbs', tagline: 'Steam-sterilized with full lot traceability', img: IMG.pepper },
+  { id: 'seafood', name: 'Seafood', tagline: 'Sashimi-grade handling across the cold chain', img: IMG.shrimp },
+  { id: 'grains', name: 'Nuts & Grains', tagline: 'Lab-tested, packed to export specification', img: IMG.cashew },
+  { id: 'oliveOil', name: 'Olive Oil', tagline: 'The best olive oil for your culinary needs', img: IMG.oliveOil }
 ];
 
+
+
 export const products = [
-  { name: 'Arabica Coffee — Grade AA', category: 'Coffee & Cacao', desc: 'High-altitude washed arabica with bright citrus acidity and a long chocolate finish.', spec: 'MOQ 19.2 t · 60 kg jute bags · FOB', img: IMG.coffee2 },
-  { name: 'Fine-Flavor Cacao Beans', category: 'Coffee & Cacao', desc: 'Fermented and sun-dried criollo-trinitario beans, 7% moisture maximum.', spec: 'MOQ 12 t · 62.5 kg bags · FOB', img: IMG.cacao },
-  { name: 'Golden Dried Mango', category: 'Tropical Fruits', desc: 'No-sulphur dried mango slices from fully ripe fruit, naturally sweet.', spec: 'MOQ 5 t · 10 kg cartons · CIF', img: IMG.mango },
-  { name: 'Fresh MD2 Pineapple', category: 'Tropical Fruits', desc: 'Extra-sweet golden pineapples, reefer or air-freight ready, export grade.', spec: 'MOQ 1 pallet · 12-count boxes · CIF', img: IMG.pineapple },
-  { name: 'Frozen Passion Fruit Pulp', category: 'Tropical Fruits', desc: 'IQF pulp from ripe fruit, Brix 14+, no additives, aseptic packed.', spec: 'MOQ 10 t · 20 kg aseptic bags · FOB', img: IMG.passion },
-  { name: 'Black Peppercorns 5.5 mm', category: 'Spices & Herbs', desc: 'Bold, oil-rich peppercorns, steam-sterilized and hand-graded.', spec: 'MOQ 6 t · 25 kg PP bags · FOB', img: IMG.pepper },
-  { name: 'Bourbon Vanilla Pods', category: 'Spices & Herbs', desc: 'Hand-cured gourmet vanilla, 30%+ moisture, vacuum-tin packed.', spec: 'MOQ 250 kg · Vacuum tins · CIF air', img: IMG.vanilla },
-  { name: 'Sun-Dried Red Chili', category: 'Spices & Herbs', desc: 'Vibrant whole dried chilies, sun-dried, sorted and de-stemmed.', spec: 'MOQ 8 t · 10 kg cartons · FOB', img: IMG.chili },
-  { name: 'Whiteleg Shrimp — HLSO', category: 'Seafood', desc: 'Farm-raised vannamei, IQF headless shell-on, sushi-grade handling.', spec: 'MOQ 10 t · 2 kg IQF blocks · CIF', img: IMG.shrimp },
-  { name: 'Yellowfin Tuna Loins', category: 'Seafood', desc: 'Sashimi-grade loins, blast-frozen at −60 °C within hours of catch.', spec: 'MOQ 4 t · Vacuum packs · Air freight', img: IMG.tuna },
-  { name: 'Cashew Kernels W320', category: 'Nuts & Grains', desc: 'Creamy whole white kernels, 5% moisture, aflatoxin-tested lots.', spec: 'MOQ 7 t · 11.34 kg vacuum tins · FOB', img: IMG.cashew },
-  { name: 'Royal White Quinoa', category: 'Nuts & Grains', desc: 'Pre-washed low-saponin quinoa, 99.9% purity, glyphosate-free.', spec: 'MOQ 12 t · 25 kg bags · FOB', img: IMG.quinoa },
-  { name: 'Olive Oil', category: 'Olive Oil', desc: 'The best olive oil for your culinary needs', spec: 'MOQ 19 t · several quantities bottles · FOB', img: IMG.oliveOil }
+  { name: 'Arabica Coffee — Grade AA', category: 'coffee', desc: 'High-altitude washed arabica with bright citrus acidity and a long chocolate finish.', spec: 'MOQ 19.2 t · 60 kg jute bags · FOB', img: IMG.coffee2 },
+  { name: 'Fine-Flavor Cacao Beans', category: 'coffee', desc: 'Fermented and sun-dried criollo-trinitario beans, 7% moisture maximum.', spec: 'MOQ 12 t · 62.5 kg bags · FOB', img: IMG.cacao },
+  { name: 'Golden Dried Mango', category: 'fruits', desc: 'No-sulphur dried mango slices from fully ripe fruit, naturally sweet.', spec: 'MOQ 5 t · 10 kg cartons · CIF', img: IMG.mango },
+  { name: 'Fresh MD2 Pineapple', category: 'fruits', desc: 'Extra-sweet golden pineapples, reefer or air-freight ready, export grade.', spec: 'MOQ 1 pallet · 12-count boxes · CIF', img: IMG.pineapple },
+  { name: 'Frozen Passion Fruit Pulp', category: 'fruits', desc: 'IQF pulp from ripe fruit, Brix 14+, no additives, aseptic packed.', spec: 'MOQ 10 t · 20 kg aseptic bags · FOB', img: IMG.passion },
+  { name: 'Black Peppercorns 5.5 mm', category: 'spices', desc: 'Bold, oil-rich peppercorns, steam-sterilized and hand-graded.', spec: 'MOQ 6 t · 25 kg PP bags · FOB', img: IMG.pepper },
+  { name: 'Bourbon Vanilla Pods', category: 'spices', desc: 'Hand-cured gourmet vanilla, 30%+ moisture, vacuum-tin packed.', spec: 'MOQ 250 kg · Vacuum tins · CIF air', img: IMG.vanilla },
+  { name: 'Sun-Dried Red Chili', category: 'spices', desc: 'Vibrant whole dried chilies, sun-dried, sorted and de-stemmed.', spec: 'MOQ 8 t · 10 kg cartons · FOB', img: IMG.chili },
+  { name: 'Whiteleg Shrimp — HLSO', category: 'seafood', desc: 'Farm-raised vannamei, IQF headless shell-on, sushi-grade handling.', spec: 'MOQ 10 t · 2 kg IQF blocks · CIF', img: IMG.shrimp },
+  { name: 'Yellowfin Tuna Loins', category: 'seafood', desc: 'Sashimi-grade loins, blast-frozen at −60 °C within hours of catch.', spec: 'MOQ 4 t · Vacuum packs · Air freight', img: IMG.tuna },
+  { name: 'Cashew Kernels W320', category: 'grains', desc: 'Creamy whole white kernels, 5% moisture, aflatoxin-tested lots.', spec: 'MOQ 7 t · 11.34 kg vacuum tins · FOB', img: IMG.cashew },
+  { name: 'Royal White Quinoa', category: 'grains', desc: 'Pre-washed low-saponin quinoa, 99.9% purity, glyphosate-free.', spec: 'MOQ 12 t · 25 kg bags · FOB', img: IMG.quinoa },
+  { name: 'Olive Oil', category: 'oliveOil', desc: 'The best olive oil for your culinary needs', spec: 'MOQ 19 t · several quantities bottles · FOB', img: IMG.oliveOil }
 ];
 
 export const stats = [
-  { target: 25, suffix: '+', label: 'Countries served' },
-  { target: 500, suffix: '+', label: 'Containers / year' },
-  { target: 12, suffix: '+', label: 'Years of expertise' },
-  { target: 98, suffix: '%', label: 'On-time delivery' }
+  { target: 25, suffix: '+', label: 'Countries served', labelKey: 'stats.countries' },
+  { target: 500, suffix: '+', label: 'Containers / year', labelKey: 'stats.containers' },
+  { target: 12, suffix: '+', label: 'Years of expertise', labelKey: 'stats.years' },
+  { target: 98, suffix: '%', label: 'On-time delivery', labelKey: 'stats.ontime' }
 ];
 
 export const icons = {
@@ -71,10 +73,10 @@ export const icons = {
 };
 
 export const values = [
-  { icon: icons.shield, title: 'Certified Quality', text: 'Every lot is sampled, lab-tested and certified before it reaches the port. No exceptions, no shortcuts.' },
-  { icon: icons.ship, title: 'Global Logistics', text: 'Reefer, dry and break-bulk — we manage bookings, customs paperwork and cargo insurance door-to-port.' },
-  { icon: icons.tag, title: 'Competitive Pricing', text: 'Direct origin relationships remove middlemen, keeping our FOB and CIF prices sharp season after season.' },
-  { icon: icons.route, title: 'Full Traceability', text: 'From farm registry to bill of lading, every shipment carries a transparent, auditable paper trail.' }
+  { key: 'quality', icon: icons.shield, title: 'Certified Quality', text: 'Every lot is sampled, lab-tested and certified before it reaches the port. No exceptions, no shortcuts.' },
+  { key: 'logistics', icon: icons.ship, title: 'Global Logistics', text: 'Reefer, dry and break-bulk — we manage bookings, customs paperwork and cargo insurance door-to-port.' },
+  { key: 'pricing', icon: icons.tag, title: 'Competitive Pricing', text: 'Direct origin relationships remove middlemen, keeping our FOB and CIF prices sharp season after season.' },
+  { key: 'traceability', icon: icons.route, title: 'Full Traceability', text: 'From farm registry to bill of lading, every shipment carries a transparent, auditable paper trail.' }
 ];
 
 export const timeline = [
