@@ -349,3 +349,13 @@ html[lang='ar'] h1, html[lang='ar'] h2, html[lang='ar'] h3, html[lang='ar'] bloc
 [dir='rtl'] .pc-tag { left: auto; right: .8rem; }
 [dir='rtl'] .footer-link:hover { transform: translateX(-3px); }
 [dir='rtl'] .lang-switcher { margin-left: 0; margin-right: .5rem; }
+
+/* ============ MOBILE NAVBAR FIX ============ */
+.nav-lang { display: flex; align-items: center; }
+
+@media (max-width: 980px) {
+  /* Hide the top switcher on mobile — it lives inside the menu panel */
+  .nav-lang { display: none; }
+  /* Tighter spacing so logo + hamburger always fit */
+  .nav-inner { gap: .75rem; }
+}

@@ -35,7 +35,9 @@
     </nav>
 
     <a class="btn btn-gold btn-sm nav-cta" href="/contact">{$t('nav.quote')}</a>
-    <LangSwitcher />
+    <div class="nav-lang">
+      <LangSwitcher />
+    </div>
 
     <button class="hamburger" class:open={$mobileOpen} onclick={() => mobileOpen.update((v) => !v)} aria-label="Toggle menu">
       <span></span><span></span><span></span>
