@@ -3,15 +3,16 @@
   import { page } from '$app/stores';
   import { afterNavigate } from '$app/navigation';
   import { scrolled, mobileOpen } from '$lib/store.js';
+  import { t } from '$lib/i18n.js';
+  import LangSwitcher from '$lib/components/lang-switcher.svelte';
 
   const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/products', label: 'Products' },
-    { href: '/about', label: 'About' },
-    { href: '/contact', label: 'Contact' }
+    { href: '/', key: 'nav.home' },
+    { href: '/products', key: 'nav.products' },
+    { href: '/about', key: 'nav.about' },
+    { href: '/contact', key: 'nav.contact' }
   ];
 
-  // Close the mobile menu automatically after any navigation
   afterNavigate(() => mobileOpen.set(false));
 </script>
 
@@ -27,11 +28,12 @@
 
     <nav class="nav-links" aria-label="Primary">
       {#each navLinks as link (link.href)}
-        <a class="nav-link" class:active={$page.url.pathname === link.href} href={link.href}>{link.label}</a>
+        <a class="nav-link" class:active={$page.url.pathname === link.href} href={link.href}>{$t(link.key)}</a>
       {/each}
     </nav>
 
-    <a class="btn btn-gold btn-sm nav-cta" href="/contact">Request a Quote</a>
+    <a class="btn btn-gold btn-sm nav-cta" href="/contact">{$t('nav.quote')}</a>
+    <LangSwitcher />
 
     <button class="hamburger" class:open={$mobileOpen} onclick={() => mobileOpen.update((v) => !v)} aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -41,9 +43,10 @@
   {#if $mobileOpen}
     <div class="mobile-panel" transition:slide={{ duration: 260 }}>
       {#each navLinks as link (link.href)}
-        <a class="nav-link m-link" class:active={$page.url.pathname === link.href} href={link.href}>{link.label}</a>
+        <a class="nav-link m-link" class:active={$page.url.pathname === link.href} href={link.href}>{$t(link.key)}</a>
       {/each}
-      <a class="btn btn-gold" href="/contact">Request a Quote</a>
+      <a class="btn btn-gold" href="/contact">{$t('nav.quote')}</a>
+      <LangSwitcher />
     </div>
   {/if}
 </header>

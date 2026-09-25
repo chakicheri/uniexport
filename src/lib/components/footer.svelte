@@ -1,5 +1,6 @@
 <script>
   import { categories, socials } from '$lib/data.js';
+  import { t } from '$lib/i18n.js';
 </script>
 
 <footer class="footer">
@@ -12,8 +13,8 @@
         </svg>
         <span class="logo-text">MERIDIAN<small>EXPORT CO.</small></span>
       </a>
-      <p>Premium export trading company delivering certified agricultural goods from origin to ports worldwide since 2013.</p>
-      <span class="export-badge">◆ Export only — we do not import</span>
+      <p>{$t('footer.tagline')}</p>
+      <span class="export-badge">{$t('footer.badge')}</span>
       <div class="socials">
         {#each socials as s (s.label)}
           <button class="social" aria-label={s.label} title={s.label}>{@html s.svg}</button>
@@ -22,32 +23,32 @@
     </div>
 
     <div>
-      <h4>Company</h4>
-      <a class="footer-link" href="/">Home</a>
-      <a class="footer-link" href="/about">About us</a>
-      <a class="footer-link" href="/contact">Contact</a>
-      <a class="footer-link" href="/contact">Request a quote</a>
+      <h4>{$t('footer.company')}</h4>
+      <a class="footer-link" href="/">{$t('footer.home')}</a>
+      <a class="footer-link" href="/about">{$t('footer.about')}</a>
+      <a class="footer-link" href="/contact">{$t('footer.contactLink')}</a>
+      <a class="footer-link" href="/contact">{$t('footer.quote')}</a>
     </div>
 
     <div>
-      <h4>Categories</h4>
+      <h4>{$t('footer.categories')}</h4>
       {#each categories as cat (cat.name)}
         <a class="footer-link" href={`/products?cat=${encodeURIComponent(cat.name)}`}>{cat.name}</a>
       {/each}
     </div>
 
     <div>
-      <h4>Contact</h4>
+      <h4>{$t('footer.contact')}</h4>
       <p class="footer-p">Harbor Business Park, Terminal 4<br />08039 Barcelona, Spain</p>
       <p class="footer-p">exports@meridianexport.co<br />+34 910 555 214</p>
-      <p class="footer-p">Mon – Sat · 08:00 – 18:00 CET</p>
+      <p class="footer-p">{$t('footer.hours')}</p>
     </div>
   </div>
 
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
-      <span>© 2026 Meridian Export Co. All rights reserved.</span>
-      <span>Incoterms 2020 · FOB / CIF / CFR · Export only</span>
+      <span>{$t('footer.rights')}</span>
+      <span>{$t('footer.incoterms')}</span>
     </div>
   </div>
 </footer>
