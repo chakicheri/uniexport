@@ -1,8 +1,8 @@
 <script>
   import { fly } from 'svelte/transition';
-  import { form, formSubmitted, submitForm, resetForm } from '$lib/store.js';
-  import { countryOptions, products, icons } from '$lib/data.js';
-  import { t } from '$lib/i18n.js';
+  import { form as formStore, formSubmitted, submitForm, resetForm } from '$lib/store.js';
+  import { t, locale } from '$lib/i18n.js';
+  import { countryOptions, products, icons, L } from '$lib/data.js';
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -25,8 +25,8 @@
         <div class="success-icon">{@html icons.check}</div>
         <h3>{$t('form.successTitle')}</h3>
         <p>
-          {$t('form.thanks')}{$form.name ? `, ${$form.name}` : ''}. {$t('form.successBody')}
-          <strong>{$form.email}</strong> {$t('form.successTail')}
+          {$t('form.thanks')}{$formStore.name ? `, ${$formStore.name}` : ''}. {$t('form.successBody')}
+          <strong>{$formStore.email}</strong> {$t('form.successTail')}
         </p>
         <button class="btn btn-gold" onclick={resetForm}>{$t('form.again')}</button>
       </div>
@@ -35,31 +35,31 @@
         <div class="f-row">
           <div class="f-group">
             <label for="f-name">{$t('form.name')}</label>
-            <input id="f-name" type="text" required placeholder="Jane Doe" bind:value={$form.name} />
+            <input id="f-name" type="text" required placeholder="Jane Doe" bind:value={$formStore.name} />
           </div>
           <div class="f-group">
             <label for="f-company">{$t('form.company')}</label>
-            <input id="f-company" type="text" placeholder="Acme Imports GmbH" bind:value={$form.company} />
+            <input id="f-company" type="text" placeholder="Acme Imports GmbH" bind:value={$formStore.company} />
           </div>
         </div>
         <div class="f-row">
           <div class="f-group">
             <label for="f-email">{$t('form.email')}</label>
-            <input id="f-email" type="email" required placeholder="jane@acme.com" bind:value={$form.email} />
+            <input id="f-email" type="email" required placeholder="jane@acme.com" bind:value={$formStore.email} />
           </div>
           <div class="f-group">
             <label for="f-country">{$t('form.country')}</label>
-            <select id="f-country" required bind:value={$form.country}>
-              <option value="" disabled>{$t('form.selectCountry')}</option>
-              {#each countryOptions as c}
-                <option value={c}>{c}</option>
-              {/each}
-            </select>
+          <select id="f-country" bind:value={$formStore.country}>
+            <option value="">{$t('form.general')}</option>
+            {#each products as p}
+              <option value={p.id}>{L(p.name, $locale)}</option>
+            {/each}
+          </select>
           </div>
         </div>
         <div class="f-group">
           <label for="f-product">{$t('form.product')}</label>
-          <select id="f-product" bind:value={$form.product}>
+          <select id="f-product" bind:value={$formStore.product}>
             <option value="">{$t('form.general')}</option>
             {#each products as p}
               <option value={p.name}>{p.name}</option>
@@ -68,7 +68,7 @@
         </div>
         <div class="f-group">
           <label for="f-message">{$t('form.message')}</label>
-          <textarea id="f-message" required placeholder={$t('form.msgPlaceholder')} bind:value={$form.message}></textarea>
+          <textarea id="f-message" required placeholder={$t('form.msgPlaceholder')} bind:value={$formStore.message}></textarea>
         </div>
         <button type="submit" class="btn btn-gold">{$t('form.submit')}</button>
       </form>

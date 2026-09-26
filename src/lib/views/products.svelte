@@ -1,11 +1,10 @@
 <script>
-  import { page } from '$app/state'; // FIX: use state instead of stores
+  import { page } from '$app/state';
   import { goto } from '$app/navigation';
   import { inquire } from '$lib/store.js';
-  import { t } from '$lib/i18n.js';
-  import { categories, products } from '$lib/data.js';
+  import { t, locale } from '$lib/i18n.js';
+  import { categories, products, L } from '$lib/data.js';
 
-  // FIX: removed $ before page.url
   let activeCategory = $derived(page.url.searchParams.get('cat') ?? 'All');
   let filtered = $derived(
     activeCategory === 'All' ? products : products.filter((p) => p.category === activeCategory)
@@ -15,7 +14,6 @@
     goto(id === 'All' ? '/products' : `/products?cat=${id}`, { replaceState: true });
   }
 </script>
-
 
 <section class="page-head">
   <div class="container">
@@ -47,17 +45,17 @@
     </p>
 
     <div class="products-grid">
-      {#each filtered as product (product.name)}
+      {#each filtered as product (product.id)}
         <article class="product-card">
           <div class="pc-img">
-            <img src={product.img} alt={product.name} loading="lazy" />
+            <img src={product.img} alt={L(product.name, $locale)} loading="lazy" />
             <span class="pc-tag">{$t(`cat.${product.category}.name`)}</span>
           </div>
           <div class="pc-body">
-            <h3>{product.name}</h3>
-            <p>{product.desc}</p>
+            <h3>{L(product.name, $locale)}</h3>
+            <p>{L(product.desc, $locale)}</p>
             <div class="pc-spec">{product.spec}</div>
-            <button class="btn btn-gold btn-sm" onclick={() => inquire(product.name)}>{$t('products.inquire')}</button>
+            <button class="btn btn-gold btn-sm" onclick={() => inquire(product.id)}>{$t('products.inquire')}</button>
           </div>
         </article>
       {/each}

@@ -36,21 +36,49 @@ export const categories = [
 ];
 
 
+// Pick the text for the current language, fall back to English
+export const L = (obj, loc) => (obj && obj[loc]) || (obj && obj.en) || '';
 
 export const products = [
-  { name: 'Arabica Coffee — Grade AA', category: 'coffee', desc: 'High-altitude washed arabica with bright citrus acidity and a long chocolate finish.', spec: 'MOQ 19.2 t · 60 kg jute bags · FOB', img: IMG.coffee2 },
-  { name: 'Fine-Flavor Cacao Beans', category: 'coffee', desc: 'Fermented and sun-dried criollo-trinitario beans, 7% moisture maximum.', spec: 'MOQ 12 t · 62.5 kg bags · FOB', img: IMG.cacao },
-  { name: 'Golden Dried Mango', category: 'fruits', desc: 'No-sulphur dried mango slices from fully ripe fruit, naturally sweet.', spec: 'MOQ 5 t · 10 kg cartons · CIF', img: IMG.mango },
-  { name: 'Fresh MD2 Pineapple', category: 'fruits', desc: 'Extra-sweet golden pineapples, reefer or air-freight ready, export grade.', spec: 'MOQ 1 pallet · 12-count boxes · CIF', img: IMG.pineapple },
-  { name: 'Frozen Passion Fruit Pulp', category: 'fruits', desc: 'IQF pulp from ripe fruit, Brix 14+, no additives, aseptic packed.', spec: 'MOQ 10 t · 20 kg aseptic bags · FOB', img: IMG.passion },
-  { name: 'Black Peppercorns 5.5 mm', category: 'spices', desc: 'Bold, oil-rich peppercorns, steam-sterilized and hand-graded.', spec: 'MOQ 6 t · 25 kg PP bags · FOB', img: IMG.pepper },
-  { name: 'Bourbon Vanilla Pods', category: 'spices', desc: 'Hand-cured gourmet vanilla, 30%+ moisture, vacuum-tin packed.', spec: 'MOQ 250 kg · Vacuum tins · CIF air', img: IMG.vanilla },
-  { name: 'Sun-Dried Red Chili', category: 'spices', desc: 'Vibrant whole dried chilies, sun-dried, sorted and de-stemmed.', spec: 'MOQ 8 t · 10 kg cartons · FOB', img: IMG.chili },
-  { name: 'Whiteleg Shrimp — HLSO', category: 'seafood', desc: 'Farm-raised vannamei, IQF headless shell-on, sushi-grade handling.', spec: 'MOQ 10 t · 2 kg IQF blocks · CIF', img: IMG.shrimp },
-  { name: 'Yellowfin Tuna Loins', category: 'seafood', desc: 'Sashimi-grade loins, blast-frozen at −60 °C within hours of catch.', spec: 'MOQ 4 t · Vacuum packs · Air freight', img: IMG.tuna },
-  { name: 'Cashew Kernels W320', category: 'grains', desc: 'Creamy whole white kernels, 5% moisture, aflatoxin-tested lots.', spec: 'MOQ 7 t · 11.34 kg vacuum tins · FOB', img: IMG.cashew },
-  { name: 'Royal White Quinoa', category: 'grains', desc: 'Pre-washed low-saponin quinoa, 99.9% purity, glyphosate-free.', spec: 'MOQ 12 t · 25 kg bags · FOB', img: IMG.quinoa },
-  { name: 'Olive Oil', category: 'oliveOil', desc: 'The best olive oil for your culinary needs', spec: 'MOQ 19 t · several quantities bottles · FOB', img: IMG.oliveOil }
+  { id: 'arabica', category: 'coffee', spec: 'MOQ 19.2 t · 60 kg jute bags · FOB', img: IMG.coffee2,
+    name: { en: 'Arabica Coffee — Grade AA', fr: 'Café Arabica — Grade AA', ar: 'بن أرابيكا — درجة AA' },
+    desc: { en: 'High-altitude washed arabica with bright citrus acidity and a long chocolate finish.', fr: 'Arabica lavé d\'altitude, acidité citronnée vive et longue finale chocolatée.', ar: 'أرابيكا مغسول من المرتفعات بحمضية حمضيات مشرقة ونهاية شوكولاتة طويلة.' } },
+  { id: 'cacao', category: 'coffee', spec: 'MOQ 12 t · 62.5 kg bags · FOB', img: IMG.cacao,
+    name: { en: 'Fine-Flavor Cacao Beans', fr: 'Fèves de cacao fin', ar: 'حبوب كاكاو فاخرة النكهة' },
+    desc: { en: 'Fermented and sun-dried criollo-trinitario beans, 7% moisture maximum.', fr: 'Fèves criollo-trinitario fermentées et séchées au soleil, 7 % d\'humidité max.', ar: 'حبوب كريولو-ترينيتاريو مخمرة ومجففة بالشمس، رطوبة قصوى 7٪.' } },
+  { id: 'mango', category: 'fruits', spec: 'MOQ 5 t · 10 kg cartons · CIF', img: IMG.mango,
+    name: { en: 'Golden Dried Mango', fr: 'Mangue séchée dorée', ar: 'مانجو مجفف ذهبي' },
+    desc: { en: 'No-sulphur dried mango slices from fully ripe fruit, naturally sweet.', fr: 'Tranches de mangue séchées sans soufre, issues de fruits bien mûrs, sucrées naturellement.', ar: 'شرائح مانجو مجففة بدون كبريت من ثمار تامة النضج، حلوة طبيعيًا.' } },
+  { id: 'pineapple', category: 'fruits', spec: 'MOQ 1 pallet · 12-count boxes · CIF', img: IMG.pineapple,
+    name: { en: 'Fresh MD2 Pineapple', fr: 'Ananas frais MD2', ar: 'أناناس MD2 طازج' },
+    desc: { en: 'Extra-sweet golden pineapples, reefer or air-freight ready, export grade.', fr: 'Ananas dorés extra-sucrés, prêts pour reefer ou fret aérien, qualité export.', ar: 'أناناس ذهبي شديد الحلاوة، جاهز للشحن المبرد أو الجوي، بدرجة التصدير.' } },
+  { id: 'passion', category: 'fruits', spec: 'MOQ 10 t · 20 kg aseptic bags · FOB', img: IMG.passion,
+    name: { en: 'Frozen Passion Fruit Pulp', fr: 'Pulpe de fruit de la passion surgelée', ar: 'لب فاكهة الباشن فروت المجمد' },
+    desc: { en: 'IQF pulp from ripe fruit, Brix 14+, no additives, aseptic packed.', fr: 'Pulpe IQF de fruits mûrs, Brix 14+, sans additifs, conditionnée en aseptique.', ar: 'لب مجمد IQF من ثمار ناضجة، بريكس +14، بدون إضافات، بتعبئة معقمة.' } },
+  { id: 'pepper', category: 'spices', spec: 'MOQ 6 t · 25 kg PP bags · FOB', img: IMG.pepper,
+    name: { en: 'Black Peppercorns 5.5 mm', fr: 'Poivre noir en grains 5,5 mm', ar: 'حبات فلفل أسود 5.5 مم' },
+    desc: { en: 'Bold, oil-rich peppercorns, steam-sterilized and hand-graded.', fr: 'Grains corsés et riches en huiles, stérilisés à la vapeur et triés à la main.', ar: 'حبات قوية غنية بالزيوت، معقمة بالبخار ومفرزة يدويًا.' } },
+  { id: 'vanilla', category: 'spices', spec: 'MOQ 250 kg · Vacuum tins · CIF air', img: IMG.vanilla,
+    name: { en: 'Bourbon Vanilla Pods', fr: 'Gousses de vanille Bourbon', ar: 'قرون فانيليا بوربون' },
+    desc: { en: 'Hand-cured gourmet vanilla, 30%+ moisture, vacuum-tin packed.', fr: 'Vanille gourmet affinée à la main, plus de 30 % d\'humidité, en boîtes sous vide.', ar: 'فانيليا فاخرة معالجة يدويًا، رطوبة +30٪، معبأة في علب مفرغة من الهواء.' } },
+  { id: 'chili', category: 'spices', spec: 'MOQ 8 t · 10 kg cartons · FOB', img: IMG.chili,
+    name: { en: 'Sun-Dried Red Chili', fr: 'Piment rouge séché au soleil', ar: 'فلفل أحمر مجفف بالشمس' },
+    desc: { en: 'Vibrant whole dried chilies, sun-dried, sorted and de-stemmed.', fr: 'Piments entiers séchés au soleil, vibrants, triés et équeutés.', ar: 'قرون فلفل كاملة مجففة بالشمس، زاهية، مفروزة ومزالة الأعناق.' } },
+  { id: 'shrimp', category: 'seafood', spec: 'MOQ 10 t · 2 kg IQF blocks · CIF', img: IMG.shrimp,
+    name: { en: 'Whiteleg Shrimp — HLSO', fr: 'Crevette pattes blanches — HLSO', ar: 'روبيان أبيض الأرجل — HLSO' },
+    desc: { en: 'Farm-raised vannamei, IQF headless shell-on, sushi-grade handling.', fr: 'Vannamei d\'élevage, IQF sans tête avec carapace, manipulation qualité sushi.', ar: 'فانامي مستزرع، مجمد IQF بدون رأس بالقشر، بمعالجة درجة السوشي.' } },
+  { id: 'tuna', category: 'seafood', spec: 'MOQ 4 t · Vacuum packs · Air freight', img: IMG.tuna,
+    name: { en: 'Yellowfin Tuna Loins', fr: 'Longes de thon albacore', ar: 'شرائح تونا صفراء الزعانف' },
+    desc: { en: 'Sashimi-grade loins, blast-frozen at −60 °C within hours of catch.', fr: 'Longes qualité sashimi, surgelées à −60 °C quelques heures après la capture.', ar: 'شرائح بدرجة الساشيمي، مجمدة سريعًا عند −60 °C خلال ساعات من الصيد.' } },
+  { id: 'cashew', category: 'grains', spec: 'MOQ 7 t · 11.34 kg vacuum tins · FOB', img: IMG.cashew,
+    name: { en: 'Cashew Kernels W320', fr: 'Amendes de cajou W320', ar: 'لبّ الكاجو W320' },
+    desc: { en: 'Creamy whole white kernels, 5% moisture, aflatoxin-tested lots.', fr: 'Amendes entières blanches et crémeuses, 5 % d\'humidité, lots testés aflatoxines.', ar: 'حبات بيضاء كاملة كريمية، رطوبة 5٪، شحنات مفحوصة من الأفلاتوكسين.' } },
+  { id: 'quinoa', category: 'grains', spec: 'MOQ 12 t · 25 kg bags · FOB', img: IMG.quinoa,
+    name: { en: 'Royal White Quinoa', fr: 'Quinoa blanc royal', ar: 'كينوا بيضاء ملكية' },
+    desc: { en: 'Pre-washed low-saponin quinoa, 99.9% purity, glyphosate-free.', fr: 'Quinoa pré-lavé à faible teneur en saponine, pureté 99,9 %, sans glyphosate.', ar: 'كينوا مغسولة مسبقًا منخفضة الصابونين، نقاء 99.9٪، خالية من الغلايفوسات.' } },
+  { id: 'oliveOil', category: 'oliveOil', spec: 'MOQ 19 t · several quantities bottles · FOB', img: IMG.oliveOil,
+    name: { en: 'Olive Oil', fr: 'Huile d\'olive', ar: 'زيت الزيتون' },
+    desc: { en: 'The best olive oil for your culinary needs', fr: 'La meilleure huile d\'olive pour vos besoins culinaires', ar: 'أفضل زيت زيتون لاحتياجاتك الطهوية' } }
 ];
 
 export const stats = [
