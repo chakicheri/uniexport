@@ -1,13 +1,13 @@
 <script>
-  import { IMG, values, timeline, certifications, icons } from '$lib/data.js';
+  import { IMG, values, timeline, certifications } from '$lib/data.js';
   import { t } from '$lib/i18n.js';
 </script>
 
 <section class="page-head">
   <div class="container">
-    <span class="eyebrow">OUR STORY</span>
-    <h1>One direction: outward.</h1>
-    <p>A trading company built exclusively around exporting — no importing, ever — so every process, partnership and habit points the same way.</p>
+    <span class="eyebrow">{$t('about.eyebrow')}</span>
+    <h1>{$t('about.title')}</h1>
+    <p>{$t('about.text')}</p>
   </div>
 </section>
 
@@ -17,18 +17,18 @@
       <img src={IMG.about} alt="Quality inspector checking a sack of export coffee" loading="lazy" />
     </div>
     <div class="about-text">
-      <span class="eyebrow alt">SINCE 2013</span>
-      <h2>From one container to four continents</h2>
-      <p>Universal Export. began with a single container of high-altitude coffee and a simple conviction: origin deserves a direct seat at the world's table. Today we run five specialist divisions and ship more than 500 containers a year.</p>
-      <p>We made a deliberate decision early on — no importing. Focusing on one direction of trade lets us go deeper: stronger farm relationships, tighter quality control and logistics tuned to a single, demanding flow of goods.</p>
-      <p>Every lot we ship is sampled, lab-tested and certified at origin, then tracked from farm registry to bill of lading. That is the Meridian standard.</p>
+      <span class="eyebrow alt">{$t('about.since')}</span>
+      <h2>{$t('about.storyTitle')}</h2>
+      <p>{$t('about.p1')}</p>
+      <p>{$t('about.p2')}</p>
+      <p>{$t('about.p3')}</p>
     </div>
   </div>
 
   <div class="container">
     <div class="mission">
-      <blockquote>“Our promise is simple: we only move goods out into the world — never in. That single direction is where all our expertise, relationships and obsession with quality live.”</blockquote>
-      <cite>— The Meridian Export Co. founding charter</cite>
+      <blockquote>{$t('about.quote')}</blockquote>
+      <cite>{$t('about.cite')}</cite>
     </div>
   </div>
 </section>
@@ -36,8 +36,8 @@
 <section class="section values-sec">
   <div class="container">
     <div class="sec-head">
-      <span class="eyebrow alt">WHAT WE STAND FOR</span>
-      <h2>Values that ship with every container</h2>
+      <span class="eyebrow alt">{$t('about.valEyebrow')}</span>
+      <h2>{$t('about.valTitle')}</h2>
     </div>
     <div class="feat-grid">
       {#each values as item (item.key)}
@@ -55,8 +55,8 @@
   <div class="container two-col">
     <div>
       <div class="sec-head">
-        <span class="eyebrow alt">COMPLIANCE</span>
-        <h2>Certifications & audits</h2>
+        <span class="eyebrow alt">{$t('about.compEyebrow')}</span>
+        <h2>{$t('about.compTitle')}</h2>
       </div>
       <div class="certs">
         {#each certifications as cert}
@@ -66,14 +66,14 @@
     </div>
     <div>
       <div class="sec-head">
-        <span class="eyebrow alt">MILESTONES</span>
-        <h2>The road so far</h2>
+        <span class="eyebrow alt">{$t('about.milEyebrow')}</span>
+        <h2>{$t('about.milTitle')}</h2>
       </div>
       <div class="timeline">
         {#each timeline as item (item.year)}
           <div class="t-item">
             <div class="t-year">{item.year}</div>
-            <p>{item.text}</p>
+            <p>{$t(item.key)}</p>
           </div>
         {/each}
       </div>

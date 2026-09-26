@@ -80,11 +80,11 @@ export const values = [
 ];
 
 export const timeline = [
-  { year: '2013', text: 'Founded as a single-origin coffee exporter. First container shipped to Rotterdam.' },
-  { year: '2016', text: 'HACCP certified. Spices & herbs division opens with three partner cooperatives.' },
-  { year: '2019', text: '500th container delivered. First long-term retail contracts signed across the EU.' },
-  { year: '2022', text: 'Cold-chain seafood program launches with −60 °C blast-freezing capability.' },
-  { year: '2026', text: 'Serving 25+ countries across four continents — export only, by design.' }
+  { year: '2013', key: 'tl.1' },
+  { year: '2016', key: 'tl.2' },
+  { year: '2019', key: 'tl.3' },
+  { year: '2022', key: 'tl.4' },
+  { year: '2026', key: 'tl.5' }
 ];
 
 export const certifications = ['ISO 22000', 'HACCP', 'BRCGS', 'Fair Trade', 'Organic EU', 'Rainforest Alliance'];
