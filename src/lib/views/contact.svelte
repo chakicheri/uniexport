@@ -1,6 +1,6 @@
 <script>
   import { fly } from 'svelte/transition';
-  import { form, formSubmitted, submitForm, resetForm } from '$lib/store.js';
+  import { form as formData, formSubmitted, submitForm, resetForm } from '$lib/store.js';
   import { countryRegions, products, icons, L } from '$lib/data.js';  import { t, locale } from '$lib/i18n.js';
   
 
@@ -27,8 +27,8 @@
         <div class="success-icon">{@html icons.check}</div>
         <h3>{$t('form.successTitle')}</h3>
         <p>
-          {$t('form.thanks')}{$form.name ? `, ${$form.name}` : ''}. {$t('form.successBody')}
-          <strong>{$form.email}</strong> {$t('form.successTail')}
+          {$t('form.thanks')}{$formData.name ? `, ${$formData.name}` : ''}. {$t('form.successBody')}
+          <strong>{$formData.email}</strong> {$t('form.successTail')}
         </p>
         <button class="btn btn-gold" onclick={resetForm}>{$t('form.again')}</button>
       </div>
@@ -37,22 +37,22 @@
         <div class="f-row">
           <div class="f-group">
             <label for="f-name">{$t('form.name')}</label>
-            <input id="f-name" type="text" required placeholder="Jane Doe" bind:value={$form.name} />
+            <input id="f-name" type="text" required placeholder="Jane Doe" bind:value={$formData.name} />
           </div>
           <div class="f-group">
             <label for="f-company">{$t('form.company')}</label>
-            <input id="f-company" type="text" placeholder="Acme Imports GmbH" bind:value={$form.company} />
+            <input id="f-company" type="text" placeholder="Acme Imports GmbH" bind:value={$formData.company} />
           </div>
         </div>
 
         <div class="f-row">
           <div class="f-group">
             <label for="f-email">{$t('form.email')}</label>
-            <input id="f-email" type="email" required placeholder="jane@acme.com" bind:value={$form.email} />
+            <input id="f-email" type="email" required placeholder="jane@acme.com" bind:value={$formData.email} />
           </div>
           <div class="f-group">
             <label for="f-country">{$t('form.country')}</label>
-            <select id="f-country" required bind:value={$form.country}>
+            <select id="f-country" required bind:value={$formData.country}>
               <option value="" disabled>{$t('form.selectCountry')}</option>
               {#each countryRegions as region (region.id)}
                 <optgroup label={$t(`region.${region.id}`)}>
@@ -67,7 +67,7 @@
 
         <div class="f-group">
           <label for="f-product">{$t('form.product')}</label>
-          <select id="f-product" bind:value={$form.product}>
+          <select id="f-product" bind:value={$formData.product}>
             <option value="">{$t('form.general')}</option>
             {#each products as p (p.id)}
               <option value={p.id}>{L(p.name, $locale)}</option>
@@ -81,7 +81,7 @@
             id="f-message"
             required
             placeholder={$t('form.msgPlaceholder')}
-            bind:value={$form.message}
+            bind:value={$formData.message}
           ></textarea>
         </div>
 

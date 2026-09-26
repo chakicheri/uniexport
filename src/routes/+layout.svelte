@@ -6,6 +6,8 @@
   import { onMount } from 'svelte';
   import { locale, browserLocale } from '$lib/i18n.js';
   import { scrolled } from '$lib/store.js';
+  import BackToTop from '$lib/components/BackToTop.svelte';
+
 
   let { children } = $props();
 
@@ -36,3 +38,4 @@
 {@render children()}
 
 <Footer />
+<BackToTop />
