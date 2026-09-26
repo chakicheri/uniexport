@@ -1,6 +1,8 @@
 <script>
   import { categories, socials } from '$lib/data.js';
   import { t } from '$lib/i18n.js';
+  import LangSwitcher from '$lib/components/lang-switcher.svelte'; 
+
 </script>
 
 <footer class="footer">
@@ -20,6 +22,7 @@
           <button class="social" aria-label={s.label} title={s.label}>{@html s.svg}</button>
         {/each}
       </div>
+      <LangSwitcher />
     </div>
 
     <div>

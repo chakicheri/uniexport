@@ -392,3 +392,8 @@ html[lang='ar'] h1, html[lang='ar'] h2, html[lang='ar'] h3, html[lang='ar'] bloc
   .back-to-top { bottom: 1.2rem; right: 1.2rem; width: 44px; height: 44px; }
   [dir='rtl'] .back-to-top { right: auto; left: 1.2rem; }
 }
+/* ============ FOOTER LANG SWITCHER ============ */
+.footer-brand .lang-switcher {
+  margin-left: 0;
+  margin-top: 1.5rem;
+}
