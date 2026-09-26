@@ -119,8 +119,72 @@ export const certifications = ['ISO 22000', 'HACCP', 'BRCGS', 'Fair Trade', 'Org
 
 export const ports = ['ROTTERDAM', 'HAMBURG', 'ANTWERP', 'FELIXSTOWE', 'NEW YORK', 'MIAMI', 'SANTOS', 'ALGECIRAS', 'DUBAI', 'SINGAPORE', 'SHANGHAI', 'YOKOHAMA'];
 
-export const countryOptions = ['United States', 'Canada', 'Germany', 'Netherlands', 'United Kingdom', 'France', 'Spain', 'Italy', 'United Arab Emirates', 'Japan', 'South Korea', 'Australia', 'Other'];
-
+export const countryRegions = [
+  {
+    id: 'africa',
+    countries: [
+      { id: 'dz', name: { en: 'Algeria', fr: 'Algérie', ar: 'الجزائر' } },
+      { id: 'ma', name: { en: 'Morocco', fr: 'Maroc', ar: 'المغرب' } },
+      { id: 'tn', name: { en: 'Tunisia', fr: 'Tunisie', ar: 'تونس' } },
+      { id: 'eg', name: { en: 'Egypt', fr: 'Égypte', ar: 'مصر' } },
+      { id: 'ly', name: { en: 'Libya', fr: 'Libye', ar: 'ليبيا' } },
+      { id: 'sn', name: { en: 'Senegal', fr: 'Sénégal', ar: 'السنغال' } },
+      { id: 'ci', name: { en: "Côte d'Ivoire", fr: "Côte d'Ivoire", ar: 'ساحل العاج' } },
+      { id: 'gh', name: { en: 'Ghana', fr: 'Ghana', ar: 'غانا' } },
+      { id: 'ng', name: { en: 'Nigeria', fr: 'Nigéria', ar: 'نيجيريا' } },
+      { id: 'cm', name: { en: 'Cameroon', fr: 'Cameroun', ar: 'الكاميرون' } },
+      { id: 'ke', name: { en: 'Kenya', fr: 'Kenya', ar: 'كينيا' } },
+      { id: 'za', name: { en: 'South Africa', fr: 'Afrique du Sud', ar: 'جنوب أفريقيا' } }
+    ]
+  },
+  {
+    id: 'europe',
+    countries: [
+      { id: 'fr', name: { en: 'France', fr: 'France', ar: 'فرنسا' } },
+      { id: 'de', name: { en: 'Germany', fr: 'Allemagne', ar: 'ألمانيا' } },
+      { id: 'es', name: { en: 'Spain', fr: 'Espagne', ar: 'إسبانيا' } },
+      { id: 'pt', name: { en: 'Portugal', fr: 'Portugal', ar: 'البرتغال' } },
+      { id: 'it', name: { en: 'Italy', fr: 'Italie', ar: 'إيطاليا' } },
+      { id: 'nl', name: { en: 'Netherlands', fr: 'Pays-Bas', ar: 'هولندا' } },
+      { id: 'be', name: { en: 'Belgium', fr: 'Belgique', ar: 'بلجيكا' } },
+      { id: 'gb', name: { en: 'United Kingdom', fr: 'Royaume-Uni', ar: 'المملكة المتحدة' } },
+      { id: 'ch', name: { en: 'Switzerland', fr: 'Suisse', ar: 'سويسرا' } },
+      { id: 'pl', name: { en: 'Poland', fr: 'Pologne', ar: 'بولندا' } },
+      { id: 'gr', name: { en: 'Greece', fr: 'Grèce', ar: 'اليونان' } },
+      { id: 'tr', name: { en: 'Türkiye', fr: 'Turquie', ar: 'تركيا' } }
+    ]
+  },
+  {
+    id: 'arab',
+    countries: [
+      { id: 'sa', name: { en: 'Saudi Arabia', fr: 'Arabie saoudite', ar: 'السعودية' } },
+      { id: 'ae', name: { en: 'United Arab Emirates', fr: 'Émirats arabes unis', ar: 'الإمارات العربية المتحدة' } },
+      { id: 'qa', name: { en: 'Qatar', fr: 'Qatar', ar: 'قطر' } },
+      { id: 'kw', name: { en: 'Kuwait', fr: 'Koweït', ar: 'الكويت' } },
+      { id: 'bh', name: { en: 'Bahrain', fr: 'Bahreïn', ar: 'البحرين' } },
+      { id: 'om', name: { en: 'Oman', fr: 'Oman', ar: 'عُمان' } },
+      { id: 'jo', name: { en: 'Jordan', fr: 'Jordanie', ar: 'الأردن' } },
+      { id: 'lb', name: { en: 'Lebanon', fr: 'Liban', ar: 'لبنان' } },
+      { id: 'iq', name: { en: 'Iraq', fr: 'Irak', ar: 'العراق' } }
+    ]
+  },
+  {
+    id: 'world',
+    countries: [
+      { id: 'us', name: { en: 'United States', fr: 'États-Unis', ar: 'الولايات المتحدة' } },
+      { id: 'ca', name: { en: 'Canada', fr: 'Canada', ar: 'كندا' } },
+      { id: 'br', name: { en: 'Brazil', fr: 'Brésil', ar: 'البرازيل' } },
+      { id: 'mx', name: { en: 'Mexico', fr: 'Mexique', ar: 'المكسيك' } },
+      { id: 'jp', name: { en: 'Japan', fr: 'Japon', ar: 'اليابان' } },
+      { id: 'kr', name: { en: 'South Korea', fr: 'Corée du Sud', ar: 'كوريا الجنوبية' } },
+      { id: 'cn', name: { en: 'China', fr: 'Chine', ar: 'الصين' } },
+      { id: 'in', name: { en: 'India', fr: 'Inde', ar: 'الهند' } },
+      { id: 'my', name: { en: 'Malaysia', fr: 'Malaisie', ar: 'ماليزيا' } },
+      { id: 'au', name: { en: 'Australia', fr: 'Australie', ar: 'أستراليا' } },
+      { id: 'other', name: { en: 'Other', fr: 'Autre', ar: 'أخرى' } }
+    ]
+  }
+];
 export const socials = [
   { label: 'LinkedIn', svg: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>` },
   { label: 'Instagram', svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg>` },

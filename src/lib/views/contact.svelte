@@ -1,8 +1,8 @@
 <script>
   import { fly } from 'svelte/transition';
   import { form, formSubmitted, submitForm, resetForm } from '$lib/store.js';
-  import { countryOptions, products, icons, L } from '$lib/data.js';
-  import { t, locale } from '$lib/i18n.js';
+  import { countryRegions, products, icons, L } from '$lib/data.js';  import { t, locale } from '$lib/i18n.js';
+  
 
   function handleSubmit(event) {
     event.preventDefault(); // fake submission — show success state
@@ -54,8 +54,12 @@
             <label for="f-country">{$t('form.country')}</label>
             <select id="f-country" required bind:value={$form.country}>
               <option value="" disabled>{$t('form.selectCountry')}</option>
-              {#each countryOptions as c}
-                <option value={c}>{c}</option>
+              {#each countryRegions as region (region.id)}
+                <optgroup label={$t(`region.${region.id}`)}>
+                  {#each region.countries as c (c.id)}
+                    <option value={c.id}>{L(c.name, $locale)}</option>
+                  {/each}
+                </optgroup>
               {/each}
             </select>
           </div>

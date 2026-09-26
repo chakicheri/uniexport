@@ -106,7 +106,11 @@ export const translations = {
     'info.hours': 'Export hours',
     'info.hours1': 'Mon – Sat · 08:00 – 18:00 CET',
     'info.hours2': 'Replies within 24 business hours',
-    'info.badge': '◆ Export only — no importation'
+    'info.badge': '◆ Export only — no importation',
+    'region.africa': 'Africa',
+    'region.europe': 'Europe',
+    'region.arab': 'Arab World',
+    'region.world': 'Rest of the World',
   },
   fr: {
     'nav.home': 'Accueil', 'nav.products': 'Produits', 'nav.about': 'À propos', 'nav.contact': 'Contact', 'nav.quote': 'Demander un devis',
@@ -151,7 +155,7 @@ export const translations = {
     'products.countAll': 'produits toutes divisions confondues',
     'products.countIn': 'produits dans',
     'products.inquire': 'Demander',
-        'about.eyebrow': 'NOTRE HISTOIRE',
+    'about.eyebrow': 'NOTRE HISTOIRE',
     'about.title': 'Une seule direction : l\'extérieur.',
     'about.text': 'Une société de négoce construite exclusivement autour de l\'export — jamais d\'import — ainsi chaque processus, partenariat et habitude va dans le même sens.',
     'about.since': 'DEPUIS 2013',
@@ -196,7 +200,11 @@ export const translations = {
     'info.hours': 'Heures d\'export',
     'info.hours1': 'Lun – Sam · 08h00 – 18h00 CET',
     'info.hours2': 'Réponse sous 24 heures ouvrées',
-    'info.badge': '◆ Export uniquement — aucune importation'
+    'info.badge': '◆ Export uniquement — aucune importation',
+    'region.africa': 'Afrique',
+    'region.europe': 'Europe',
+    'region.arab': 'Monde arabe',
+    'region.world': 'Reste du monde',    
   },
   ar: {
     'nav.home': 'الرئيسية', 'nav.products': 'المنتجات', 'nav.about': 'من نحن', 'nav.contact': 'اتصل بنا', 'nav.quote': 'طلب عرض سعر',
@@ -241,7 +249,7 @@ export const translations = {
     'products.countAll': 'منتجات عبر جميع الأقسام',
     'products.countIn': 'منتجات في',
     'products.inquire': 'استفسر',
-        'about.eyebrow': 'قصتنا',
+    'about.eyebrow': 'قصتنا',
     'about.title': 'اتجاه واحد: إلى الخارج.',
     'about.text': 'شركة تجارية مبنية حصريًا حول التصدير — لا استيراد أبدًا — لذا تشير كل عملية وشراكة وعادة إلى الاتجاه نفسه.',
     'about.since': 'منذ 2013',
@@ -286,7 +294,12 @@ export const translations = {
     'info.hours': 'ساعات التصدير',
     'info.hours1': 'الاثنين – السبت · 08:00 – 18:00 CET',
     'info.hours2': 'نرد خلال 24 ساعة عمل',
-    'info.badge': '◆ تصدير فقط — لا استيراد'
+    'info.badge': '◆ تصدير فقط — لا استيراد',
+    'region.africa': 'أفريقيا',
+    'region.europe': 'أوروبا',
+    'region.arab': 'العالم العربي',
+    'region.world': 'باقي العالم',    
+
   }
 };
 
