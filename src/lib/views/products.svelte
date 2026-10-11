@@ -50,6 +50,8 @@
           <div class="pc-img">
             <img src={product.img} alt={L(product.name, $locale)} loading="lazy" />
             <span class="pc-tag">{$t(`cat.${product.category}.name`)}</span>
+            <a class="pc-link" href={`/products/${product.id}`} aria-label={L(product.name, $locale)}></a>
+
           </div>
           <div class="pc-body">
             <h3>{L(product.name, $locale)}</h3>
