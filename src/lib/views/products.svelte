@@ -14,8 +14,8 @@
   function selectCategory(id) {
     goto(id === 'All' ? '/products' : `/products?cat=${id}`, { replaceState: true });
   }
-  const products = getContext('products');
-</script>
+  const getProducts = getContext('products');
+  const products = $derived(getProducts());</script>
 
 <section class="page-head">
   <div class="container">

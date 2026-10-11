@@ -12,7 +12,8 @@
   let { data, children } = $props(); // data comes from +layout.server.js
   
   // Share the Supabase products with ALL child components
-  setContext('products', data.products); 
+  // Share a LIVE getter instead of a frozen snapshot
+  setContext('products', () => data.products);
 
   onMount(() => {
     locale.set(browserLocale());

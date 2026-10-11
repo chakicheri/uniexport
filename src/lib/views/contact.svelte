@@ -8,8 +8,8 @@
     event.preventDefault(); // fake submission — show success state
     submitForm();
   }
-  const products = getContext('products');
-</script>
+  const getProducts = getContext('products');
+  const products = $derived(getProducts());</script>
 
 <!-- Page header -->
 <section class="page-head">

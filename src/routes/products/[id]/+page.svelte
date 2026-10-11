@@ -5,8 +5,8 @@
   import { inquire } from '$lib/store.js';
   import { getContext } from 'svelte';
 
-  const products = getContext('products');
-  let product = $derived(products.find((p) => p.id === page.params.id));
+  const getProducts = getContext('products');
+  const products = $derived(getProducts());  let product = $derived(products.find((p) => p.id === page.params.id));
 
   // Build the spec rows — missing fields are simply hidden
   let specs = $derived.by(() => {

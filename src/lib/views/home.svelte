@@ -19,7 +19,8 @@
     };
     requestAnimationFrame(tick);
   });
-  const products = getContext('products');
+  const getProducts = getContext('products');
+  const products = $derived(getProducts());
 </script>
 
 <section class="hero">
