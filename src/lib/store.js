@@ -23,4 +23,5 @@ export function submitForm() { formSubmitted.set(true); }
 export function resetForm() { form.set({ ...emptyForm }); formSubmitted.set(false); }
 
 // Helper: how many products are in a category
-export const countFor = (name) => products.filter((p) => p.category === name).length;
+// Change the last line to this:
+export const countFor = (name, productList) => productList.filter((p) => p.category === name).length;

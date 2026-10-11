@@ -3,7 +3,8 @@
   import { goto } from '$app/navigation';
   import { inquire } from '$lib/store.js';
   import { t, locale } from '$lib/i18n.js';
-  import { categories, products, L } from '$lib/data.js';
+  import { categories, L } from '$lib/data.js';
+  import { getContext } from 'svelte';
 
   let activeCategory = $derived(page.url.searchParams.get('cat') ?? 'All');
   let filtered = $derived(
@@ -13,6 +14,7 @@
   function selectCategory(id) {
     goto(id === 'All' ? '/products' : `/products?cat=${id}`, { replaceState: true });
   }
+  const products = getContext('products');
 </script>
 
 <section class="page-head">

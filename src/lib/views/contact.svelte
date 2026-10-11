@@ -1,13 +1,14 @@
 <script>
   import { fly } from 'svelte/transition';
   import { form as formData, formSubmitted, submitForm, resetForm } from '$lib/store.js';
-  import { countryRegions, products, icons, L } from '$lib/data.js';  import { t, locale } from '$lib/i18n.js';
-  
+  import { countryRegions, icons, L } from '$lib/data.js';  import { t, locale } from '$lib/i18n.js';
+  import { getContext } from 'svelte';
 
   function handleSubmit(event) {
     event.preventDefault(); // fake submission — show success state
     submitForm();
   }
+  const products = getContext('products');
 </script>
 
 <!-- Page header -->

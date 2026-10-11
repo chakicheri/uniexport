@@ -1,9 +1,11 @@
 <script>
   import { page } from '$app/state';
-  import { products, L } from '$lib/data.js';
+  import { L } from '$lib/data.js';
   import { t, locale } from '$lib/i18n.js';
   import { inquire } from '$lib/store.js';
+  import { getContext } from 'svelte';
 
+  const products = getContext('products');
   let product = $derived(products.find((p) => p.id === page.params.id));
 
   // Build the spec rows — missing fields are simply hidden

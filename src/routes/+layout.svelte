@@ -1,15 +1,18 @@
 <script>
+  import { setContext } from 'svelte'; // ADD THIS
   import favicon from '$lib/assets/favicon.svg';
   import '../app.css';
   import Navbar from '$lib/components/navbar.svelte';
   import Footer from '$lib/components/footer.svelte';
+  import BackToTop from '$lib/components/BackToTop.svelte';
   import { onMount } from 'svelte';
   import { locale, browserLocale } from '$lib/i18n.js';
   import { scrolled } from '$lib/store.js';
-  import BackToTop from '$lib/components/BackToTop.svelte';
 
-
-  let { children } = $props();
+  let { data, children } = $props(); // data comes from +layout.server.js
+  
+  // Share the Supabase products with ALL child components
+  setContext('products', data.products); 
 
   onMount(() => {
     locale.set(browserLocale());
@@ -18,7 +21,6 @@
       document.documentElement.lang = code;
       document.documentElement.dir = code === 'ar' ? 'rtl' : 'ltr';
     });
-    // Solid navbar on scroll (restored)
     const onScroll = () => scrolled.set(window.scrollY > 16);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => {
@@ -34,8 +36,6 @@
 </svelte:head>
 
 <Navbar />
-
 {@render children()}
-
 <Footer />
 <BackToTop />

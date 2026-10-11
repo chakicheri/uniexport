@@ -4,6 +4,7 @@
   import { countFor } from '$lib/store.js';
   import { t } from '$lib/i18n.js';
   import { IMG, categories, stats, values, ports } from '$lib/data.js';
+  import { getContext } from 'svelte';
 
   let counts = $state(stats.map(() => 0));
 
@@ -18,6 +19,7 @@
     };
     requestAnimationFrame(tick);
   });
+  const products = getContext('products');
 </script>
 
 <section class="hero">
@@ -69,7 +71,7 @@
           <div class="cat-info">
             <h3>{$t(`cat.${cat.id}.name`)}</h3>
             <p>{$t(`cat.${cat.id}.tagline`)}</p>
-            <span class="cat-count">{countFor(cat.id)} {$t('home.productsWord')}</span>
+            <span class="cat-count">{countFor(cat.id, products)} {$t('home.productsWord')}</span>
           </div>
         </a>
       {/each}
