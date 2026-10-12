@@ -1,18 +1,59 @@
 <script>
   import { fly } from 'svelte/transition';
   import { form as formData, formSubmitted, submitForm, resetForm } from '$lib/store.js';
-  import { countryRegions, icons, L } from '$lib/data.js';  import { t, locale } from '$lib/i18n.js';
+  import { countryRegions, icons, L } from '$lib/data.js';
+  import { t, locale } from '$lib/i18n.js';
   import { getContext } from 'svelte';
 
-  function handleSubmit(event) {
-    event.preventDefault(); // fake submission — show success state
-    submitForm();
-  }
   const getProducts = getContext('products');
   const products = $derived(getProducts());
 
   const getCategories = getContext('categories');
   const categories = $derived(getCategories());
+
+  let loading = $state(false);
+  let errorMsg = $state('');
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    loading = true;
+    errorMsg = '';
+
+    // Find the selected product name for the email subject line
+    const selectedProduct = products.find(p => p.id === $formData.product);
+    const productName = selectedProduct ? L(selectedProduct.name, 'en') : 'General Inquiry';
+
+    const payload = {
+      access_key: 'b84f8406-bcaf-4561-a0db-f4d3eed31fdf', // <--- PASTE YOUR KEY HERE
+      name: $formData.name,
+      company: $formData.company,
+      email: $formData.email,
+      country: $formData.country,
+      product_interest: productName,
+      message: $formData.message,
+      subject: `New Export Inquiry: ${productName} from ${$formData.company || $formData.name}`,
+      from_name: 'UniExport B2B Portal'
+    };
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const json = await res.json();
+      
+      if (json.success) {
+        submitForm(); // Triggers your beautiful success UI card
+      } else {
+        errorMsg = json.message || 'Failed to send. Please try again.';
+      }
+    } catch (err) {
+      errorMsg = 'Network error. Please check your connection.';
+    } finally {
+      loading = false;
+    }
+  }
 </script>
   
 
@@ -36,7 +77,17 @@
           {$t('form.thanks')}{$formData.name ? `, ${$formData.name}` : ''}. {$t('form.successBody')}
           <strong>{$formData.email}</strong> {$t('form.successTail')}
         </p>
-        <button class="btn btn-gold" onclick={resetForm}>{$t('form.again')}</button>
+        <button type="submit" class="btn btn-gold" disabled={loading}>
+          {#if loading}
+            Sending...
+          {:else}
+            {$t('form.submit')}
+          {/if}
+        </button>
+
+        {#if errorMsg}
+          <p style="color: #d93025; margin-top: 1rem; font-weight: 600;">{errorMsg}</p>
+        {/if}
       </div>
     {:else}
       <form class="contact-form" onsubmit={handleSubmit}>
