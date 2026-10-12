@@ -3,7 +3,7 @@
   import { goto } from '$app/navigation';
   import { inquire } from '$lib/store.js';
   import { t, locale } from '$lib/i18n.js';
-  import { categories, L } from '$lib/data.js';
+  import { L } from '$lib/data.js';
   import { getContext } from 'svelte';
 
   let activeCategory = $derived(page.url.searchParams.get('cat') ?? 'All');
@@ -15,7 +15,12 @@
     goto(id === 'All' ? '/products' : `/products?cat=${id}`, { replaceState: true });
   }
   const getProducts = getContext('products');
-  const products = $derived(getProducts());</script>
+  const products = $derived(getProducts());
+  const getCategories = getContext('categories');
+  const categories = $derived(getCategories());
+  
+  </script>
+  
 
 <section class="page-head">
   <div class="container">

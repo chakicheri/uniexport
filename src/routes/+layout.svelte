@@ -14,6 +14,9 @@
   // Share the Supabase products with ALL child components
   // Share a LIVE getter instead of a frozen snapshot
   setContext('products', () => data.products);
+  setContext('categories', () => data.categories);
+  
+  
 
   onMount(() => {
     locale.set(browserLocale());

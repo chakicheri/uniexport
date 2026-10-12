@@ -3,7 +3,7 @@
   import { onMount } from 'svelte';
   import { countFor } from '$lib/store.js';
   import { t } from '$lib/i18n.js';
-  import { IMG, categories, stats, values, ports } from '$lib/data.js';
+  import { IMG, stats, values, ports } from '$lib/data.js';
   import { getContext } from 'svelte';
 
   let counts = $state(stats.map(() => 0));
@@ -21,6 +21,8 @@
   });
   const getProducts = getContext('products');
   const products = $derived(getProducts());
+  const getCategories = getContext('categories');
+  const categories = $derived(getCategories());
 </script>
 
 <section class="hero">

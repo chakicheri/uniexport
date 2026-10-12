@@ -9,7 +9,12 @@
     submitForm();
   }
   const getProducts = getContext('products');
-  const products = $derived(getProducts());</script>
+  const products = $derived(getProducts());
+
+  const getCategories = getContext('categories');
+  const categories = $derived(getCategories());
+</script>
+  
 
 <!-- Page header -->
 <section class="page-head">

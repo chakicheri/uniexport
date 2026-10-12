@@ -25,5 +25,19 @@ export async function load() {
     shelfLife: row.shelf_life_en ? { en: row.shelf_life_en, fr: row.shelf_life_fr, ar: row.shelf_life_ar } : undefined
   }));
 
-  return { products };
+  const { data: catRows, error: catError } = await supabase
+    .from('categories')
+    .select('*')
+    .order('sort', { ascending: true });
+
+  if (catError) console.error('Supabase categories error:', catError);
+
+  const categories = (catRows || []).map(row => ({
+    id: row.id,
+    img: row.image_url,
+    name: { en: row.name_en, fr: row.name_fr, ar: row.name_ar },
+    tagline: { en: row.tagline_en, fr: row.tagline_fr, ar: row.tagline_ar }
+  }));
+
+  return { products, categories };  
 }

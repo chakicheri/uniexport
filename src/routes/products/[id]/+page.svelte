@@ -8,6 +8,8 @@
   const getProducts = getContext('products');
   const products = $derived(getProducts());  let product = $derived(products.find((p) => p.id === page.params.id));
 
+  const getCategories = getContext('categories');
+  const categories = $derived(getCategories());
   // Build the spec rows — missing fields are simply hidden
   let specs = $derived.by(() => {
     if (!product) return [];
