@@ -6,10 +6,15 @@
   import { getContext } from 'svelte';
 
   const getProducts = getContext('products');
-  const products = $derived(getProducts());  let product = $derived(products.find((p) => p.id === page.params.id));
+  const products = $derived(getProducts());
+  let product = $derived(products.find((p) => p.id === page.params.id));
 
   const getCategories = getContext('categories');
   const categories = $derived(getCategories());
+  
+  // FIX 1: Derive the category name from the DB categories array
+  let categoryName = $derived(L(categories.find((c) => c.id === product?.category)?.name, $locale) ?? '');
+
   // Build the spec rows — missing fields are simply hidden
   let specs = $derived.by(() => {
     if (!product) return [];
@@ -40,20 +45,21 @@
         <span>{L(product.name, $locale)}</span>
       </nav>
       <h1>{L(product.name, $locale)}</h1>
-      <p>{$t(`cat.${product.category}.name`)}</p>
+      <!-- FIX 2: Use the derived categoryName instead of $t() -->
+      <p>{categoryName}</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container pd-grid">
       <div class="pd-img">
-       {#if product.img}
-         <img src={product.img} alt={L(product.name, $locale)} />
-       {:else}
-        <div class="pc-img-ph">{categoryName}</div>
-       {/if}
-  ...
-        <span class="pc-tag">{$t(`cat.${product.category}.name`)}</span>
+        {#if product.img}
+          <img src={product.img} alt={L(product.name, $locale)} />
+        {:else}
+          <div class="pc-img-ph">{categoryName}</div>
+        {/if}
+        <!-- FIX 3: Use the derived categoryName here too -->
+        <span class="pc-tag">{categoryName}</span>
       </div>
 
       <div class="pd-info">
