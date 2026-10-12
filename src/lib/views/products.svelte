@@ -55,7 +55,11 @@
       {#each filtered as product (product.id)}
         <article class="product-card">
           <div class="pc-img">
-            <img src={product.img} alt={L(product.name, $locale)} loading="lazy" />
+            {#if product.img}
+              <img src={product.img} alt={L(product.name, $locale)} loading="lazy" />
+            {:else}
+              <div class="pc-img-ph">{L(categories.find((c) => c.id === product.category)?.name, $locale)}</div>
+            {/if}
             <span class="pc-tag">{$t(`cat.${product.category}.name`)}</span>
             <a class="pc-link" href={`/products/${product.id}`} aria-label={L(product.name, $locale)}></a>
 

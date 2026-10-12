@@ -47,7 +47,12 @@
   <section class="section">
     <div class="container pd-grid">
       <div class="pd-img">
-        <img src={product.img} alt={L(product.name, $locale)} />
+       {#if product.img}
+         <img src={product.img} alt={L(product.name, $locale)} />
+       {:else}
+        <div class="pc-img-ph">{categoryName}</div>
+       {/if}
+  ...
         <span class="pc-tag">{$t(`cat.${product.category}.name`)}</span>
       </div>
 

@@ -2,8 +2,8 @@
   import { fly } from 'svelte/transition';
   import { onMount } from 'svelte';
   import { countFor } from '$lib/store.js';
-  import { t } from '$lib/i18n.js';
-  import { IMG, stats, values, ports } from '$lib/data.js';
+  import { t, locale } from '$lib/i18n.js';
+  import { IMG, stats, values, ports, L } from '$lib/data.js';
   import { getContext } from 'svelte';
 
   let counts = $state(stats.map(() => 0));
@@ -70,10 +70,12 @@
     <div class="cat-grid">
       {#each categories as cat (cat.id)}
         <a class="cat-card" href={`/products?cat=${cat.id}`}>
-          <img src={cat.img} alt={$t(`cat.${cat.id}.name`)} loading="lazy" />
+          {#if cat.img}
+            <img src={cat.img} alt={L(cat.name, $locale)} loading="lazy" />
+          {/if}
           <div class="cat-info">
-            <h3>{$t(`cat.${cat.id}.name`)}</h3>
-            <p>{$t(`cat.${cat.id}.tagline`)}</p>
+            <h3>{L(cat.name, $locale)}</h3>
+            <p>{L(cat.tagline, $locale)}</p>
             <span class="cat-count">{countFor(cat.id, products)} {$t('home.productsWord')}</span>
           </div>
         </a>
