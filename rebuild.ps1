@@ -1,4 +1,4 @@
 git add .
-git commit -m "fix: remove unused imports of products from data.js in products.svelte, contact.svelte, and +page.svelte 2"
+git commit -m "added the admin panel and the ability to add products and categories, also added the ability to translate the site into multiple languages"
 git push
 

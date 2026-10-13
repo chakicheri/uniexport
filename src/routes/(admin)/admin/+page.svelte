@@ -7,7 +7,7 @@
   let products = $state([]);
   let cats = $state([]);
   let q = $state('');
-  let editing = $state(null);     // null = closed | object = open form
+  let editing = $state(null);
   let pendingDelete = $state(null);
   let saving = $state(false);
   let uploading = $state(false);
@@ -84,7 +84,7 @@
       ? await supabase.from('products').insert(row)
       : await supabase.from('products').update(row).eq('id', row.id);
     saving = false;
-    if (error) { msg = error.code === '23505' ? 'An product with that name already exists — tweak the English name.' : error.message; return; }
+    if (error) { msg = error.code === '23505' ? 'A product with that name already exists — tweak the English name.' : error.message; return; }
     msg = 'Saved ✓';
     editing = null;
     load();
@@ -106,6 +106,10 @@
 <div class="adm">
   <header class="adm-bar">
     <div class="adm-brand">MERIDIAN <small>ADMIN</small></div>
+    <nav class="adm-nav">
+      <a class="adm-tab active" href="/admin">Products</a>
+      <a class="adm-tab" href="/admin/categories">Categories</a>
+    </nav>
     <div class="adm-actions">
       <a class="adm-link" href="/" target="_blank" rel="noopener">View site ↗</a>
       <button class="adm-btn ghost" onclick={handleLogout}>Logout</button>
@@ -206,11 +210,15 @@
 
 <style>
   .adm { min-height: 100vh; background: #f4f6fa; color: #0b1d3a; font-family: 'Inter', system-ui, sans-serif; }
-  .adm-bar { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; background: #0b1d3a; color: #fff; position: sticky; top: 0; z-index: 5; }
-  .adm-brand { font-weight: 800; letter-spacing: .12em; }
+  .adm-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.5rem; background: #0b1d3a; color: #fff; position: sticky; top: 0; z-index: 5; }
+  .adm-brand { font-weight: 800; letter-spacing: .12em; white-space: nowrap; }
   .adm-brand small { color: #e8a33d; font-weight: 600; letter-spacing: .2em; margin-left: .4rem; }
+  .adm-nav { display: flex; gap: .25rem; }
+  .adm-tab { color: rgba(255,255,255,.6); text-decoration: none; font-size: .9rem; font-weight: 600; padding: .4rem .85rem; border-radius: 8px; transition: all .15s; }
+  .adm-tab:hover { color: #fff; background: rgba(255,255,255,.08); }
+  .adm-tab.active { color: #0b1d3a; background: #e8a33d; }
   .adm-actions { display: flex; gap: .6rem; align-items: center; }
-  .adm-link { color: rgba(255,255,255,.75); font-size: .85rem; text-decoration: none; }
+  .adm-link { color: rgba(255,255,255,.75); font-size: .85rem; text-decoration: none; white-space: nowrap; }
   .adm-link:hover { color: #e8a33d; }
   .adm-main { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
   .adm-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; }
@@ -237,6 +245,7 @@
   .adm-field label { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #5b6b82; }
   .adm-field input, .adm-field select, .adm-field textarea { border: 1px solid #d6dde6; border-radius: 9px; padding: .6rem .7rem; font: inherit; font-size: .92rem; background: #fbfcfe; width: 100%; box-sizing: border-box; }
   .adm-field input:focus, .adm-field select:focus, .adm-field textarea:focus { outline: 2px solid #e8a33d; border-color: #e8a33d; }
+  .adm-field input[readonly] { background: #eef1f6; color: #5b6b82; }
   .adm-field textarea { resize: vertical; }
   .adm-imgbox { width: 100%; aspect-ratio: 4/3; border-radius: 12px; overflow: hidden; background: #eef1f6; display: flex; align-items: center; justify-content: center; border: 1px dashed #cdd5e0; margin-bottom: .5rem; }
   .adm-imgbox img { width: 100%; height: 100%; object-fit: cover; }
@@ -254,6 +263,10 @@
   .adm-sub { font-size: .78rem; color: #5b6b82; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .adm-rowbtns { display: flex; gap: .4rem; flex: 0 0 auto; }
   .adm-empty { text-align: center; color: #5b6b82; padding: 2rem; }
+  @media (max-width: 860px) {
+    .adm-bar { flex-wrap: wrap; }
+    .adm-nav { order: 3; width: 100%; justify-content: center; }
+  }
   @media (max-width: 760px) {
     .adm-grid2 { grid-template-columns: 1fr; }
     .adm-row3 { grid-template-columns: 1fr; }
