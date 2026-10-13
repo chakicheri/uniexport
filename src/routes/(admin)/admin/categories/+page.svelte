@@ -130,7 +130,7 @@
 
         <div class="adm-grid2">
           <div class="adm-field">
-            <label>Cover image</label>
+            <label for="category-cover-input">Cover image</label>
             <div class="adm-imgbox">
               {#if editing.image_url}
                 <img src={editing.image_url} alt="preview" />
@@ -138,7 +138,7 @@
                 <span class="adm-imgph">no image</span>
               {/if}
             </div>
-            <input type="file" accept="image/*" onchange={onPick} disabled={uploading} />
+            <input id="category-cover-input" type="file" accept="image/*" onchange={onPick} disabled={uploading} />
             {#if uploading}<small class="adm-hint">Uploading…</small>{/if}
             {#if editing.image_url}
               <button class="adm-btn tiny ghost" onclick={() => (editing.image_url = '')}>Remove image</button>
@@ -148,32 +148,31 @@
           <div class="adm-col">
             {#if !editing.isNew}
               <div class="adm-field">
-                <label>ID (permanent — used in URLs)</label>
-                <input readonly value={editing.id} />
+                <label for="category-id-input">ID (permanent — used in URLs)</label>
+                <input id="category-id-input" readonly value={editing.id} />
                 <small class="adm-hint">Products reference this ID, so it can't be changed.</small>
               </div>
             {:else}
               <div class="adm-field">
-                <label>ID</label>
                 <small class="adm-hint">Auto‑generated from the English name (e.g. “Building Materials” → <code>building-materials</code>).</small>
               </div>
             {/if}
-            <div class="adm-field"><label>Sort order</label><input type="number" bind:value={editing.sort} /></div>
+            <div class="adm-field"><label for="category-sort-input">Sort order</label><input id="category-sort-input" type="number" bind:value={editing.sort} /></div>
           </div>
         </div>
 
         <h3>Name — 3 languages</h3>
         <div class="adm-row3">
-          <div class="adm-field"><label>EN *</label><input bind:value={editing.name_en} /></div>
-          <div class="adm-field"><label>FR</label><input bind:value={editing.name_fr} /></div>
-          <div class="adm-field"><label>AR</label><input dir="rtl" bind:value={editing.name_ar} /></div>
+          <div class="adm-field"><label for="category-name-en">EN *</label><input id="category-name-en" bind:value={editing.name_en} /></div>
+          <div class="adm-field"><label for="category-name-fr">FR</label><input id="category-name-fr" bind:value={editing.name_fr} /></div>
+          <div class="adm-field"><label for="category-name-ar">AR</label><input id="category-name-ar" dir="rtl" bind:value={editing.name_ar} /></div>
         </div>
 
         <h3>Tagline — 3 languages</h3>
         <div class="adm-row3">
-          <div class="adm-field"><label>EN</label><textarea rows="2" bind:value={editing.tagline_en}></textarea></div>
-          <div class="adm-field"><label>FR</label><textarea rows="2" bind:value={editing.tagline_fr}></textarea></div>
-          <div class="adm-field"><label>AR</label><textarea rows="2" dir="rtl" bind:value={editing.tagline_ar}></textarea></div>
+          <div class="adm-field"><label for="category-tagline-en">EN</label><textarea id="category-tagline-en" rows="2" bind:value={editing.tagline_en}></textarea></div>
+          <div class="adm-field"><label for="category-tagline-fr">FR</label><textarea id="category-tagline-fr" rows="2" bind:value={editing.tagline_fr}></textarea></div>
+          <div class="adm-field"><label for="category-tagline-ar">AR</label><textarea id="category-tagline-ar" rows="2" dir="rtl" bind:value={editing.tagline_ar}></textarea></div>
         </div>
 
         <div class="adm-formfoot">
@@ -247,8 +246,8 @@
   .adm-row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .75rem; }
   .adm-field { display: flex; flex-direction: column; gap: .3rem; margin-bottom: .5rem; }
   .adm-field label { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #5b6b82; }
-  .adm-field input, .adm-field select, .adm-field textarea { border: 1px solid #d6dde6; border-radius: 9px; padding: .6rem .7rem; font: inherit; font-size: .92rem; background: #fbfcfe; width: 100%; box-sizing: border-box; }
-  .adm-field input:focus, .adm-field select:focus, .adm-field textarea:focus { outline: 2px solid #e8a33d; border-color: #e8a33d; }
+  .adm-field input, .adm-field textarea { border: 1px solid #d6dde6; border-radius: 9px; padding: .6rem .7rem; font: inherit; font-size: .92rem; background: #fbfcfe; width: 100%; box-sizing: border-box; }
+  .adm-field input:focus, .adm-field textarea:focus { outline: 2px solid #e8a33d; border-color: #e8a33d; }
   .adm-field input[readonly] { background: #eef1f6; color: #5b6b82; }
   .adm-field textarea { resize: vertical; }
   .adm-field code { background: #eef1f6; padding: .05rem .3rem; border-radius: 4px; font-size: .8em; }

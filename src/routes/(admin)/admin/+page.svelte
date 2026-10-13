@@ -36,7 +36,13 @@
     const nextSort = products.length ? Math.max(...products.map((x) => x.sort || 0)) + 10 : 100;
     editing = {
       isNew: true, id: '', category: cats[0]?.id || '', image_url: '', spec: '', hs_code: '',
-      sort: nextSort, name_en: '', name_fr: '', name_ar: '', desc_en: '', desc_fr: '', desc_ar: ''
+      sort: nextSort, name_en: '', name_fr: '', name_ar: '', desc_en: '', desc_fr: '', desc_ar: '',
+      details_en: '', details_fr: '', details_ar: '',
+      availability_en: '', availability_fr: '', availability_ar: '',
+      season_en: '', season_fr: '', season_ar: '',
+      origin_en: '', origin_fr: '', origin_ar: '',
+      packaging_en: '', packaging_fr: '', packaging_ar: '',
+      shelf_life_en: '', shelf_life_fr: '', shelf_life_ar: ''
     };
     msg = '';
   }
@@ -78,7 +84,13 @@
       hs_code: editing.hs_code || null,
       sort: Number(editing.sort) || 100,
       name_en: editing.name_en, name_fr: editing.name_fr || '', name_ar: editing.name_ar || '',
-      desc_en: editing.desc_en || '', desc_fr: editing.desc_fr || '', desc_ar: editing.desc_ar || ''
+      desc_en: editing.desc_en || '', desc_fr: editing.desc_fr || '', desc_ar: editing.desc_ar || '',
+      details_en: editing.details_en || null, details_fr: editing.details_fr || null, details_ar: editing.details_ar || null,
+      availability_en: editing.availability_en || null, availability_fr: editing.availability_fr || null, availability_ar: editing.availability_ar || null,
+      season_en: editing.season_en || null, season_fr: editing.season_fr || null, season_ar: editing.season_ar || null,
+      origin_en: editing.origin_en || null, origin_fr: editing.origin_fr || null, origin_ar: editing.origin_ar || null,
+      packaging_en: editing.packaging_en || null, packaging_fr: editing.packaging_fr || null, packaging_ar: editing.packaging_ar || null,
+      shelf_life_en: editing.shelf_life_en || null, shelf_life_fr: editing.shelf_life_fr || null, shelf_life_ar: editing.shelf_life_ar || null
     };
     const { error } = editing.isNew
       ? await supabase.from('products').insert(row)
@@ -130,7 +142,7 @@
 
         <div class="adm-grid2">
           <div class="adm-field">
-            <label>Image</label>
+            <label for="product-image-input">Image</label>
             <div class="adm-imgbox">
               {#if editing.image_url}
                 <img src={editing.image_url} alt="preview" />
@@ -138,7 +150,7 @@
                 <span class="adm-imgph">no image</span>
               {/if}
             </div>
-            <input type="file" accept="image/*" onchange={onPick} disabled={uploading} />
+            <input id="product-image-input" type="file" accept="image/*" onchange={onPick} disabled={uploading} />
             {#if uploading}<small class="adm-hint">Uploading…</small>{/if}
             {#if editing.image_url}
               <button class="adm-btn tiny ghost" onclick={() => (editing.image_url = '')}>Remove image</button>
@@ -147,33 +159,66 @@
 
           <div class="adm-col">
             <div class="adm-field">
-              <label>Category</label>
-              <select bind:value={editing.category}>
+              <label for="product-category-select">Category</label>
+              <select id="product-category-select" bind:value={editing.category}>
                 {#each cats as c}<option value={c.id}>{c.name_en}</option>{/each}
               </select>
             </div>
             <div class="adm-row2">
-              <div class="adm-field"><label>Sort order</label><input type="number" bind:value={editing.sort} /></div>
-              <div class="adm-field"><label>HS code</label><input placeholder="0804.10" bind:value={editing.hs_code} /></div>
+              <div class="adm-field"><label for="product-sort-input">Sort order</label><input id="product-sort-input" type="number" bind:value={editing.sort} /></div>
+              <div class="adm-field"><label for="product-hscode-input">HS code</label><input id="product-hscode-input" placeholder="0804.10" bind:value={editing.hs_code} /></div>
             </div>
-            <div class="adm-field"><label>Spec line (FOB/CIF/MOQ)</label><input placeholder="MOQ 10 t · 5 kg cartons · CIF" bind:value={editing.spec} /></div>
+            <div class="adm-field"><label for="product-spec-input">Spec line (FOB/CIF/MOQ)</label><input id="product-spec-input" placeholder="MOQ 10 t · 5 kg cartons · CIF" bind:value={editing.spec} /></div>
           </div>
         </div>
 
         <h3>Name — 3 languages</h3>
         <div class="adm-row3">
-          <div class="adm-field"><label>EN *</label><input bind:value={editing.name_en} /></div>
-          <div class="adm-field"><label>FR</label><input bind:value={editing.name_fr} /></div>
-          <div class="adm-field"><label>AR</label><input dir="rtl" bind:value={editing.name_ar} /></div>
+          <div class="adm-field"><label for="product-name-en">EN *</label><input id="product-name-en" bind:value={editing.name_en} /></div>
+          <div class="adm-field"><label for="product-name-fr">FR</label><input id="product-name-fr" bind:value={editing.name_fr} /></div>
+          <div class="adm-field"><label for="product-name-ar">AR</label><input id="product-name-ar" dir="rtl" bind:value={editing.name_ar} /></div>
         </div>
 
         <h3>Description — 3 languages</h3>
         <div class="adm-row3">
-          <div class="adm-field"><label>EN</label><textarea rows="3" bind:value={editing.desc_en}></textarea></div>
-          <div class="adm-field"><label>FR</label><textarea rows="3" bind:value={editing.desc_fr}></textarea></div>
-          <div class="adm-field"><label>AR</label><textarea rows="3" dir="rtl" bind:value={editing.desc_ar}></textarea></div>
+          <div class="adm-field"><label for="product-desc-en">EN</label><textarea id="product-desc-en" rows="3" bind:value={editing.desc_en}></textarea></div>
+          <div class="adm-field"><label for="product-desc-fr">FR</label><textarea id="product-desc-fr" rows="3" bind:value={editing.desc_fr}></textarea></div>
+          <div class="adm-field"><label for="product-desc-ar">AR</label><textarea id="product-desc-ar" rows="3" dir="rtl" bind:value={editing.desc_ar}></textarea></div>
         </div>
 
+                <h3>Long details (optional) — 3 languages</h3>
+        <div class="adm-row3">
+          <div class="adm-field"><label>EN</label><textarea rows="3" bind:value={editing.details_en}></textarea></div>
+          <div class="adm-field"><label>FR</label><textarea rows="3" bind:value={editing.details_fr}></textarea></div>
+          <div class="adm-field"><label>AR</label><textarea rows="3" dir="rtl" bind:value={editing.details_ar}></textarea></div>
+        </div>
+
+        <h3>Trade specs (optional — appear as boxes on the product page)</h3>
+        <div class="adm-row3">
+          <div class="adm-field"><label>Availability EN</label><input placeholder="Year-round" bind:value={editing.availability_en} /></div>
+          <div class="adm-field"><label>Availability FR</label><input placeholder="Toute l'année" bind:value={editing.availability_fr} /></div>
+          <div class="adm-field"><label>Availability AR</label><input dir="rtl" placeholder="على مدار العام" bind:value={editing.availability_ar} /></div>
+        </div>
+        <div class="adm-row3">
+          <div class="adm-field"><label>Season EN</label><input placeholder="Harvest: Oct – Jan" bind:value={editing.season_en} /></div>
+          <div class="adm-field"><label>Season FR</label><input placeholder="Récolte : oct. – janv." bind:value={editing.season_fr} /></div>
+          <div class="adm-field"><label>Season AR</label><input dir="rtl" placeholder="الحصاد: أكتوبر – يناير" bind:value={editing.season_ar} /></div>
+        </div>
+        <div class="adm-row3">
+          <div class="adm-field"><label>Origin EN</label><input placeholder="Biskra & Ouargla oases, Algeria" bind:value={editing.origin_en} /></div>
+          <div class="adm-field"><label>Origin FR</label><input placeholder="Oasis de Biskra et Ouargla, Algérie" bind:value={editing.origin_fr} /></div>
+          <div class="adm-field"><label>Origin AR</label><input dir="rtl" placeholder="واحات بسكرة وورقلة، الجزائر" bind:value={editing.origin_ar} /></div>
+        </div>
+        <div class="adm-row3">
+          <div class="adm-field"><label>Packaging EN</label><input placeholder="5 kg & 10 kg cartons" bind:value={editing.packaging_en} /></div>
+          <div class="adm-field"><label>Packaging FR</label><input placeholder="Cartons de 5 et 10 kg" bind:value={editing.packaging_fr} /></div>
+          <div class="adm-field"><label>Packaging AR</label><input dir="rtl" placeholder="كراتين 5 و10 كغ" bind:value={editing.packaging_ar} /></div>
+        </div>
+        <div class="adm-row3">
+          <div class="adm-field"><label>Shelf life EN</label><input placeholder="12 months" bind:value={editing.shelf_life_en} /></div>
+          <div class="adm-field"><label>Shelf life FR</label><input placeholder="12 mois" bind:value={editing.shelf_life_fr} /></div>
+          <div class="adm-field"><label>Shelf life AR</label><input dir="rtl" placeholder="12 شهرًا" bind:value={editing.shelf_life_ar} /></div>
+        </div>
         <div class="adm-formfoot">
           <button class="adm-btn gold" onclick={save} disabled={saving || uploading}>{saving ? 'Saving…' : 'Save product'}</button>
           <button class="adm-btn ghost" onclick={() => (editing = null)}>Cancel</button>
@@ -245,7 +290,6 @@
   .adm-field label { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #5b6b82; }
   .adm-field input, .adm-field select, .adm-field textarea { border: 1px solid #d6dde6; border-radius: 9px; padding: .6rem .7rem; font: inherit; font-size: .92rem; background: #fbfcfe; width: 100%; box-sizing: border-box; }
   .adm-field input:focus, .adm-field select:focus, .adm-field textarea:focus { outline: 2px solid #e8a33d; border-color: #e8a33d; }
-  .adm-field input[readonly] { background: #eef1f6; color: #5b6b82; }
   .adm-field textarea { resize: vertical; }
   .adm-imgbox { width: 100%; aspect-ratio: 4/3; border-radius: 12px; overflow: hidden; background: #eef1f6; display: flex; align-items: center; justify-content: center; border: 1px dashed #cdd5e0; margin-bottom: .5rem; }
   .adm-imgbox img { width: 100%; height: 100%; object-fit: cover; }
