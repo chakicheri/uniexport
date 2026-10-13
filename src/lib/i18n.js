@@ -124,6 +124,12 @@ export const translations = {
     'product.notFound': 'Product not found.',
     'brand.name': 'MERIDIAN',
     'brand.sub': 'EXPORT CO.',
+    'info.address1': 'Algeria',
+    'info.address2': '',
+    'info.email1': 'contact@uni-export.com',
+    'info.email2': '',
+    'info.phone1': '+213 773 78 90 40',
+    'info.phone2': '',    
   },
   fr: {
     'nav.home': 'Accueil', 'nav.products': 'Produits', 'nav.about': 'À propos', 'nav.contact': 'Contact', 'nav.quote': 'Demander un devis',
@@ -228,7 +234,14 @@ export const translations = {
     'product.back': '← Retour au catalogue',
     'product.notFound': 'Produit introuvable.',
     'brand.name': 'MERIDIAN',
-    'brand.sub': 'EXPORT CO.',       
+    'brand.sub': 'EXPORT CO.',   
+
+    'info.address1': 'Algérie',
+    'info.address2': '',
+    'info.email1': 'contact@uni-export.com',
+    'info.email2': '',
+    'info.phone1': '+213 773 78 90 40',
+    'info.phone2': '',        
   },
   ar: {
     'nav.home': 'الرئيسية', 'nav.products': 'المنتجات', 'nav.about': 'من نحن', 'nav.contact': 'اتصل بنا', 'nav.quote': 'طلب عرض سعر',
@@ -334,13 +347,19 @@ export const translations = {
     'product.notFound': 'المنتج غير موجود.',     
     'brand.name': 'MERIDIAN',
     'brand.sub': 'EXPORT CO.',
+
+    'info.address1': 'الجزائر',
+    'info.address2': '',
+    'info.email1': 'contact@uni-export.com',
+    'info.email2': '',
+    'info.phone1': '+213 773 78 90 40',
+    'info.phone2': '',    
   }
 };
 
 export const t = derived([locale, overrides], ([$locale, $overrides]) => {
-  return (key) =>
-    $overrides[$locale]?.[key] ||
-    translations[$locale]?.[key] ||
-    translations.en?.[key] ||
-    key;
+  return (key) => {
+    const v = $overrides[$locale]?.[key] ?? translations[$locale]?.[key] ?? translations.en?.[key];
+    return v !== undefined ? v : key;
+  };
 });

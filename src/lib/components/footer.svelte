@@ -45,8 +45,9 @@
 
     <div>
       <h4>{$t('footer.contact')}</h4>
-      <p class="footer-p">Harbor Business Park, Terminal 4<br />08039 Barcelona, Spain</p>
-      <p class="footer-p">exports@meridianexport.co<br />+34 910 555 214</p>
+      <p class="footer-p">{$t('info.address1')}
+        {#if $t('info.address2')}<br />{$t('info.address2')}{/if}</p>
+      <p class="footer-p">{$t('info.email1')}<br />{$t('info.phone1')}</p>
       <p class="footer-p">{$t('footer.hours')}</p>
     </div>
   </div>

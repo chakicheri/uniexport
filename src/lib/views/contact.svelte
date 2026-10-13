@@ -152,7 +152,8 @@
         <div class="info-icon">{@html icons.mail}</div>
         <div>
           <h4>{$t('info.desk')}</h4>
-          <p>exports@meridianexport.co<br />quotes@meridianexport.co</p>
+          <p>{$t('info.email1')}
+            {#if $t('info.email2')}<br />{$t('info.email2')}{/if}</p>
         </div>
       </div>
 
@@ -160,7 +161,8 @@
         <div class="info-icon">{@html icons.phone}</div>
         <div>
           <h4>{$t('info.phone')}</h4>
-          <p>+34 910 555 214<br />+34 600 555 890</p>
+          <p>{$t('info.phone1')}
+            {#if $t('info.phone2')}<br />{$t('info.phone2')}{/if}</p>
         </div>
       </div>
 
@@ -168,7 +170,8 @@
         <div class="info-icon">{@html icons.pin}</div>
         <div>
           <h4>{$t('info.office')}</h4>
-          <p>Harbor Business Park, Terminal 4<br />08039 Barcelona, Spain</p>
+          <p>{$t('info.address1')}
+            {#if $t('info.address2')}<br />{$t('info.address2')}{/if}</p>
         </div>
       </div>
 
