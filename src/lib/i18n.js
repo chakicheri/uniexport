@@ -122,6 +122,8 @@ export const translations = {
     'product.inquireCta': 'Inquire about this product →',
     'product.back': '← Back to catalog',
     'product.notFound': 'Product not found.',
+    'brand.name': 'MERIDIAN',
+    'brand.sub': 'EXPORT CO.',
   },
   fr: {
     'nav.home': 'Accueil', 'nav.products': 'Produits', 'nav.about': 'À propos', 'nav.contact': 'Contact', 'nav.quote': 'Demander un devis',
@@ -224,7 +226,9 @@ export const translations = {
     'product.hsCode': 'Code SH',
     'product.inquireCta': 'Demander ce produit →',
     'product.back': '← Retour au catalogue',
-    'product.notFound': 'Produit introuvable.',       
+    'product.notFound': 'Produit introuvable.',
+    'brand.name': 'MERIDIAN',
+    'brand.sub': 'EXPORT CO.',       
   },
   ar: {
     'nav.home': 'الرئيسية', 'nav.products': 'المنتجات', 'nav.about': 'من نحن', 'nav.contact': 'اتصل بنا', 'nav.quote': 'طلب عرض سعر',
@@ -328,7 +332,8 @@ export const translations = {
     'product.inquireCta': 'استفسر عن هذا المنتج ←',
     'product.back': 'العودة إلى الكتالوج →',
     'product.notFound': 'المنتج غير موجود.',     
-
+    'brand.name': 'MERIDIAN',
+    'brand.sub': 'EXPORT CO.',
   }
 };
 

@@ -24,7 +24,7 @@
         <circle cx="16" cy="16" r="13.5" fill="none" stroke="currentColor" stroke-width="2" />
         <path d="M16 5.5l3.2 10.5L16 26.5l-3.2-10.5z" fill="currentColor" />
       </svg>
-      <span class="logo-text">MERIDIAN<small>EXPORT CO.</small></span>
+      <span class="logo-text">{$t('brand.name')}<small>{$t('brand.sub')}</small></span>
     </a>
 
     <nav class="nav-links" aria-label="Primary">

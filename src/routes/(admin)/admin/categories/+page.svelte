@@ -109,6 +109,7 @@
     <nav class="adm-nav">
       <a class="adm-tab" href="/admin">Products</a>
       <a class="adm-tab active" href="/admin/categories">Categories</a>
+      <a class="adm-tab" href="/admin/translations">Texts</a>
     </nav>
     <div class="adm-actions">
       <a class="adm-link" href="/" target="_blank" rel="noopener">View site ↗</a>
