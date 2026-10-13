@@ -39,5 +39,12 @@ export async function load() {
     tagline: { en: row.tagline_en, fr: row.tagline_fr, ar: row.tagline_ar }
   }));
 
-  return { products, categories };  
+  const { data: trRows } = await supabase.from('translations').select('key, en, fr, ar');
+  const translationsOverrides = {};
+  (trRows || []).forEach((r) => {
+    for (const loc of ['en', 'fr', 'ar']) {
+      if (r[loc]) (translationsOverrides[loc] ??= {})[r.key] = r[loc];
+    }
+  });
+  return { products, categories, translationsOverrides };
 }

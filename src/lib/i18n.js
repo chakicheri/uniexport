@@ -16,6 +16,8 @@ export function browserLocale() {
 }
 
 export const locale = writable('en');
+// DB overrides: { en: { key: value }, fr: {...}, ar: {...} }
+export const overrides = writable({});
 
 export const translations = {
   en: {
@@ -330,4 +332,10 @@ export const translations = {
   }
 };
 
-export const t = derived(locale, ($locale) => (key) => translations[$locale][key] ?? translations.en[key] ?? key);
+export const t = derived([locale, overrides], ([$locale, $overrides]) => {
+  return (key) =>
+    $overrides[$locale]?.[key] ||
+    translations[$locale]?.[key] ||
+    translations.en?.[key] ||
+    key;
+});

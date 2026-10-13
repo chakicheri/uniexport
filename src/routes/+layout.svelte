@@ -6,7 +6,7 @@
   import BackToTop from '$lib/components/BackToTop.svelte';
   import { onMount } from 'svelte';
   import { page } from '$app/state';                 // <-- add
-  import { locale, browserLocale } from '$lib/i18n.js';
+  import { locale, browserLocale, overrides } from '$lib/i18n.js';   // extend existing import
   import { scrolled } from '$lib/store.js';
   import { setContext } from 'svelte';
 
@@ -14,6 +14,8 @@
 
   setContext('products', () => data.products);
   setContext('categories', () => data.categories);
+  
+  overrides.set(data.translationsOverrides ?? {});
 
   // Hide the public chrome on the admin / login zone
   let isAdmin = $derived(
